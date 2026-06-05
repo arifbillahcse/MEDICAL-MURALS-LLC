@@ -1,0 +1,148 @@
+/* ===== RESET & BASE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    color: #444;
+    background-color: #c8c8c8;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ===== SITE WRAPPER ===== */
+.site-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #fff;
+}
+
+/* ===== HEADER ===== */
+.site-header {
+    background-color: #3a3a3a;
+    padding: 16px 20px;
+}
+
+.site-header .logo {
+    font-size: 26px;
+    font-weight: bold;
+    color: #ccc;
+    letter-spacing: 1px;
+    font-family: Georgia, serif;
+}
+
+/* ===== NAVIGATION ===== */
+.main-nav {
+    background-color: #1a1a1a;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.main-nav ul li a {
+    display: block;
+    padding: 12px 18px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.main-nav ul li a:hover,
+.main-nav ul li a.active {
+    background-color: #555;
+    color: #e88a2e;
+}
+
+.main-nav ul li a.active {
+    color: #e88a2e;
+}
+
+/* ===== PAGE CONTENT ===== */
+.page-content {
+    padding: 30px 40px;
+    background: #fff;
+}
+
+/* ===== FOOTER ===== */
+.site-footer {
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.site-footer .footer-tagline {
+    color: #0055aa;
+    font-weight: bold;
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.site-footer .footer-address {
+    color: #666;
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.site-footer .footer-cities {
+    color: #444;
+    font-size: 13px;
+    margin-bottom: 16px;
+}
+
+.site-footer .footer-cities span {
+    margin: 0 4px;
+    color: #999;
+}
+
+.site-footer .footer-sisters {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.site-footer .footer-sisters a {
+    color: #0055aa;
+    text-decoration: underline;
+}
+
+.site-footer .footer-sisters a:hover {
+    color: #e88a2e;
+}
+
+.site-footer .footer-booklet {
+    font-size: 13px;
+    color: #cc4400;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+}
+
+.site-footer .footer-booklet a {
+    color: #0055aa;
+    text-decoration: underline;
+    font-weight: normal;
+    font-size: 13px;
+}
+
+.site-footer .footer-booklet a:hover {
+    color: #e88a2e;
+}
+
+/* ===== UTILITY ===== */
+.divider {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 24px 0;
+}
