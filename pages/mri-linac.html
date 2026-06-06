@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MRI, CT & Linear Accelerator — Medical Murals, LLC</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+
+        /* ===== PAGE HERO ===== */
+        .page-hero {
+            background: linear-gradient(135deg, #0a1628 0%, #1a3060 50%, #0f2040 100%);
+            padding: 80px 0 70px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: -150px; left: 50%;
+            transform: translateX(-50%);
+            width: 700px; height: 700px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(232,138,46,0.1) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .page-hero .container { position: relative; z-index: 1; }
+
+        .page-hero h1 {
+            font-size: 48px;
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: -0.5px;
+            margin-bottom: 18px;
+            line-height: 1.1;
+        }
+
+        .page-hero h1 span { color: #e88a2e; }
+
+        .page-hero p {
+            font-size: 17px;
+            color: #8899bb;
+            max-width: 720px;
+            margin: 0 auto;
+            line-height: 1.75;
+        }
+
+        /* ===== SPECIALTY SECTIONS ===== */
+        .specialty-section {
+            padding: 72px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+
+        .specialty-section:nth-child(odd) {
+            background: #fafafa;
+        }
+
+        .specialty-section .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .specialty-section:nth-child(odd) .specialty-text {
+            order: 2;
+        }
+
+        .specialty-section:nth-child(odd) .specialty-img {
+            order: 1;
+        }
+
+        .specialty-img {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .specialty-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .specialty-text h2 {
+            font-size: 38px;
+            font-weight: 900;
+            color: #0a1628;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .specialty-text h2 span {
+            color: #e88a2e;
+        }
+
+        .specialty-text p {
+            font-size: 16px;
+            color: #444;
+            line-height: 1.8;
+            margin-bottom: 18px;
+        }
+
+        .specialty-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .spec-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .spec-feature {
+            background: linear-gradient(135deg, rgba(232,138,46,0.1) 0%, rgba(232,138,46,0.05) 100%);
+            border: 1px solid rgba(232,138,46,0.3);
+            color: #0a1628;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            background: linear-gradient(135deg, #0a1628 0%, #1a3060 100%);
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 600px; height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(232,138,46,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-section .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h2 {
+            font-size: 42px;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 18px;
+        }
+
+        .cta-section p {
+            font-size: 17px;
+            color: #8899bb;
+            margin-bottom: 36px;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.75;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #e88a2e 0%, #cc5500 100%);
+            color: #fff;
+            font-size: 15px;
+            font-weight: 700;
+            padding: 16px 40px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(232,138,46,0.3);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(232,138,46,0.4);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .specialty-section .container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .specialty-section:nth-child(odd) .specialty-text,
+            .specialty-section:nth-child(odd) .specialty-img {
+                order: initial;
+            }
+
+            .specialty-text h2 {
+                font-size: 32px;
+            }
+
+            .page-hero h1 {
+                font-size: 38px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .specialty-section {
+                padding: 48px 0;
+            }
+
+            .specialty-text h2 {
+                font-size: 28px;
+            }
+
+            .page-hero h1 {
+                font-size: 32px;
+            }
+
+            .page-hero p {
+                font-size: 15px;
+            }
+
+            .cta-section h2 {
+                font-size: 32px;
+            }
+
+            .cta-section p {
+                font-size: 15px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="header-brand">
+                <a href="../index.html" class="logo">MEDICAL MURALS, LLC</a>
+                <span class="header-tagline">Lighting Interiors With The Beauty Of The Outdoors</span>
+            </div>
+            <a href="http://anyflip.com/pyws/mabe/" target="_blank" class="header-design-btn">Our Design</a>
+        </div>
+    </header>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="main-nav">
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul id="navMenu">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="mural-choices.html">Mural Choices</a></li>
+            <li><a href="mri-linac.html" class="active">MRI LINAC</a></li>
+            <li><a href="domes.html">Domes</a></li>
+            <li><a href="plug-play.html">Plug &amp; Play</a></li>
+            <li><a href="digital-motion.html">Digital Motion</a></li>
+            <li><a href="office-murals.html">Office Murals</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- ===== PAGE HERO ===== -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Specialized Solutions for <span>Medical Imaging Rooms</span></h1>
+            <p>
+                Medical Murals provides expertly designed murals and lighting systems tailored for MRI, CT, and Linear Accelerator environments.
+                From non-ferrous filtered solutions to custom-built frameworks, we have the experience to meet even the most demanding installation requirements.
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== MRI SECTION ===== -->
+    <section class="specialty-section">
+        <div class="container">
+            <div class="specialty-text reveal">
+                <h2>MRI <span>Rooms</span></h2>
+                <p>
+                    MRI Rooms require non-ferrous filtered lighting systems for Virtual Skylights and Windows.
+                    Medical Murals carries a large selection of LED light boxes for walls and ceilings including slimline
+                    wall hanging systems.
+                </p>
+                <p>
+                    Our newest product line includes a one-piece 4' x 6' mural and LED light box system,
+                    combining premium aesthetics with proven medical-grade engineering to create a calming environment
+                    for patients undergoing imaging procedures.
+                </p>
+                <div class="spec-features">
+                    <span class="spec-feature">Non-Ferrous Materials</span>
+                    <span class="spec-feature">LED Light Boxes</span>
+                    <span class="spec-feature">Slimline Systems</span>
+                    <span class="spec-feature">4' x 6' Murals</span>
+                </div>
+            </div>
+            <div class="specialty-img reveal">
+                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=700&q=80" alt="MRI Room with Virtual Skylight">
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CT SECTION ===== -->
+    <section class="specialty-section">
+        <div class="container">
+            <div class="specialty-text reveal">
+                <h2>CT <span>Scan Rooms</span></h2>
+                <p>
+                    Good CT Scans require a cooperative patient. Our backlit ceiling murals distract and calm the patient during imaging procedures,
+                    significantly improving image quality and patient comfort.
+                </p>
+                <p>
+                    The back lighting is available in Superbright, Standard, Lowlite, and Dimmable options.
+                    The acrylic murals can be ordered as High Gloss, No-Glare, or in a Mat finish, giving you complete flexibility
+                    to match your facility's specifications and aesthetic needs.
+                </p>
+                <div class="spec-features">
+                    <span class="spec-feature">Patient Calming</span>
+                    <span class="spec-feature">Superbright LED</span>
+                    <span class="spec-feature">Dimmable Options</span>
+                    <span class="spec-feature">Multiple Finishes</span>
+                </div>
+            </div>
+            <div class="specialty-img reveal">
+                <img src="https://images.unsplash.com/photo-1579154204601-01d82ad3fe58?w=700&q=80" alt="CT Scan Room">
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== LINEAR ACCELERATOR SECTION ===== -->
+    <section class="specialty-section">
+        <div class="container">
+            <div class="specialty-text reveal">
+                <h2>Linear Accelerator <span>Rooms</span></h2>
+                <p>
+                    Linear Accelerator Rooms typically have very crowded ceilings with laser alignment systems above the gantry.
+                    These challenging environments demand specialized solutions that Medical Murals has extensive experience delivering.
+                </p>
+                <p>
+                    We design custom frames or soffits that complement the shape of the accelerator system while accommodating the laser alignment system.
+                    We also offer drop-down systems to fit under obstacles, ensuring a seamless integration with your existing equipment
+                    while providing the calming visual benefits your patients deserve.
+                </p>
+                <div class="spec-features">
+                    <span class="spec-feature">Custom Frames</span>
+                    <span class="spec-feature">Soffit Design</span>
+                    <span class="spec-feature">Laser Compatible</span>
+                    <span class="spec-feature">Drop-Down Systems</span>
+                </div>
+            </div>
+            <div class="specialty-img reveal">
+                <img src="https://images.unsplash.com/photo-1631217314831-c6227db76b6e?w=700&q=80" alt="Linear Accelerator Room">
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA SECTION ===== -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Expert Solutions For Your Medical Facility</h2>
+            <p>
+                With over 25 years of industry experience, Medical Murals understands the unique requirements of medical imaging environments.
+                Let us design the perfect solution for your facility.
+            </p>
+            <a href="contact.html" class="cta-btn">Get a Consultation Today</a>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-col">
+                <p class="footer-tagline">MEDICAL MURALS</p>
+                <p class="footer-subtitle">Lighting Interiors With The Beauty Of The Outdoors.</p>
+            </div>
+            <div class="footer-col">
+                <p class="footer-title">Company</p>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="mural-choices.html">Mural Choices</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <p class="footer-title">Products</p>
+                <ul>
+                    <li><a href="mri-linac.html">MRI LINAC</a></li>
+                    <li><a href="domes.html">Domes</a></li>
+                    <li><a href="plug-play.html">Plug &amp; Play</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <p class="footer-title">Resources</p>
+                <ul>
+                    <li><a href="digital-motion.html">Digital Motion</a></li>
+                    <li><a href="office-murals.html">Office Murals</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Medical Murals, LLC. All rights reserved.</p>
+            <p>Principal Office: Sarasota, Florida | Worldwide Locations</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
