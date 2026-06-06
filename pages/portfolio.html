@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio — Medical Murals, LLC</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* Portfolio specific styles */
+        .portfolio-hero {
+            background: linear-gradient(135deg, #0a1628 0%, #1a3060 50%, #0f2040 100%);
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-hero::before {
+            content: '';
+            position: absolute;
+            top: -150px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(232,138,46,0.1) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .portfolio-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .portfolio-hero h1 {
+            font-size: 44px;
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: -0.5px;
+            margin-bottom: 16px;
+        }
+
+        .portfolio-hero p {
+            font-size: 16px;
+            color: #8899bb;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Portfolio section */
+        .portfolio-section {
+            padding: 80px 0;
+            background: #fff;
+        }
+
+        .portfolio-intro {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .portfolio-intro .section-label {
+            display: block;
+            color: #e88a2e;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .portfolio-intro h2 {
+            font-size: 36px;
+            font-weight: 800;
+            color: #111;
+            letter-spacing: -0.5px;
+            margin-bottom: 14px;
+        }
+
+        .portfolio-intro p {
+            color: #666;
+            font-size: 15.5px;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Portfolio grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            cursor: zoom-in;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            transition: all 0.35s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.16);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .portfolio-item-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 60%, transparent 100%);
+            padding: 30px 20px 20px;
+            color: #fff;
+            opacity: 0;
+            transition: opacity 0.35s ease;
+        }
+
+        .portfolio-item:hover .portfolio-item-info {
+            opacity: 1;
+        }
+
+        .portfolio-item-title {
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            line-height: 1.3;
+        }
+
+        .portfolio-item-type {
+            font-size: 12px;
+            color: #e88a2e;
+            margin-top: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .portfolio-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+            .portfolio-hero h1 { font-size: 36px; }
+        }
+
+        @media (max-width: 768px) {
+            .portfolio-hero { padding: 60px 0; }
+            .portfolio-section { padding: 50px 0; }
+            .portfolio-hero h1 { font-size: 28px; }
+            .portfolio-intro h2 { font-size: 26px; }
+            .portfolio-grid { grid-template-columns: 1fr; gap: 16px; }
+            .portfolio-item img { height: 280px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="header-brand">
+                <a href="../index.html" class="logo">MEDICAL MURALS, LLC</a>
+                <span class="header-tagline">Lighting Interiors With The Beauty Of The Outdoors</span>
+            </div>
+            <a href="http://anyflip.com/pyws/mabe/" target="_blank" class="header-design-btn">Our Design</a>
+        </div>
+    </header>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="main-nav">
+        <div class="nav-inner">
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul id="navMenu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="portfolio.html" class="active">Portfolio</a></li>
+                <li><a href="mural-choices.html">Mural Choices</a></li>
+                <li><a href="mri-linac.html">MRI LINAC</a></li>
+                <li><a href="domes.html">Domes</a></li>
+                <li><a href="plug-play.html">Plug &amp; Play</a></li>
+                <li><a href="digital-motion.html">Digital Motion</a></li>
+                <li><a href="office-murals.html">Office Murals</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ===== PORTFOLIO HERO ===== -->
+    <section class="portfolio-hero">
+        <div class="container">
+            <h1>Our Portfolio</h1>
+            <p>Over 1,000 installations worldwide. Explore our recent projects and see the transformation we bring to healthcare facilities, hotels, and commercial spaces.</p>
+        </div>
+    </section>
+
+    <!-- ===== PORTFOLIO SECTION ===== -->
+    <section class="portfolio-section">
+        <div class="container">
+            <div class="portfolio-intro">
+                <span class="section-label">Recent Projects</span>
+                <h2>A Sampling of Our Work</h2>
+                <p>Click on any image to enlarge and view project details.</p>
+            </div>
+
+            <!-- Portfolio Grid - 12 projects, 3 per row -->
+            <div class="portfolio-grid">
+                <!-- Row 1 -->
+                <div class="portfolio-item" data-title="Denver Health" data-type="4' x 6' One-Piece">
+                    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&q=80" alt="Denver Health">
+                    <div class="portfolio-item-info">
+                        <div class="portfolio-item-title">Denver Health</div>
+                        <div class="portfolio-item-type">4' x 6' One-Piece</div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-title="Disney" data-type="Children's Play Area">
+                    <img src="https://images.unsplash.com/photo-1538368819871-a0e00b78a945?w=600&q=80" alt="Disney Children's Play Area">
+                    <div class="portfolio-item-info">
+                        <div class="portfolio-item-title">Disney</div>
+                        <div class="portfolio-item-type">Children's Play Area</div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-title="Forsythe MRI" data-type="Slimline Wall">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80" alt="Forsythe MRI">
+                    <div class="portfolio-item-info">
+                        <div class="portfolio-item-title">Forsythe MRI</div>
+                        <div class="portfolio-item-type">Slimline Wall</div>
+                    </div>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="portfolio-item" data-title="Marriott Hotel" data-type="Twinkling Lobby">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80" alt="Marriott Hotel">
+                    <div class="portfolio-item-info">
+                        <div class="portfolio-item-title">Marriott Hotel</div>
+                        <div class="portfolio-item-type">Twinkling Lobby</div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-title="Renaissance Hotel" data-type="6' x 14' Wall">
+                    <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?w=600&q=80" alt="Renaissance Hotel">
+                    <div class="portfolio-item-info">
+                        <div class="portfolio-item-title">Renaissance Hotel</div>
+                        <div class="portfolio-item-type">6' x 14' Wall</div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-title="St. Joseph Hospital MRI" data-type="MRI Room">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80" alt="St. Joseph Hospital">
+                    <div class="portfolio-item-info">
+                        <div class="portfolio-item-title">St. Joseph Hospital MRI</div>
+                        <div class="portfolio-item-type">MRI Room</div>
+                    </div>
+                </div>
+
+                <!-- Row 3 -->
+                <div class="portfolio-item" data-title="Daytona Beach" data-type="4' Lens Cover">
+                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&q=80" alt="Daytona Beach">
+                    <div class="portfolio-item-info">
+                        <div class="portfolio-item-title">Daytona Beach</div>
+                        <div class="portfolio-item-type">4' Lens Cover</div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-title="VA Dallas CT" data-type="8' Pie Shaped">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="VA Dallas CT">
+                    <div class="portfolio-item-info">
+                        <div class="portfolio-item-title">VA Dallas CT</div>
+                        <div class="portfolio-item-type">8' Pie Shaped</div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-title="VA Dallas MRI" data-type="With Back Light Off">
+                    <img src="https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=600&q=80" alt="VA Dallas MRI">
+                    <div class="portfolio-item-info">
+                        <div class="portfolio-item-title">VA Dallas MRI</div>
+                        <div class="portfolio-item-type">With Back Light Off</div>
+                    </div>
+                </div>
+
+                <!-- Row 4 -->
+                <div class="portfolio-item" data-title="Florida Hospital" data-type="Magazine Feature Article">
+                    <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&q=80" alt="Florida Hospital Magazine">
+                    <div class="portfolio-item-info">
+                        <div class="portfolio-item-title">Florida Hospital</div>
+                        <div class="portfolio-item-type">Magazine Feature</div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-title="Moffitt Cancer Center" data-type="Linear Accelerators">
+                    <img src="https://images.unsplash.com/photo-1538368819871-a0e00b78a945?w=600&q=80" alt="Moffitt Cancer Center">
+                    <div class="portfolio-item-info">
+                        <div class="portfolio-item-title">Moffitt Cancer Center</div>
+                        <div class="portfolio-item-type">Linear Accelerators</div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-title="Florida Hospital" data-type="Linear Accelerators">
+                    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&q=80" alt="Florida Hospital Linacs">
+                    <div class="portfolio-item-info">
+                        <div class="portfolio-item-title">Florida Hospital</div>
+                        <div class="portfolio-item-type">Linear Accelerators</div>
+                    </div>
+                </div>
+
+                <!-- Row 5 -->
+                <div class="portfolio-item" data-title="Tampa Hospital" data-type="CT Ceiling">
+                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&q=80" alt="Tampa Hospital">
+                    <div class="portfolio-item-info">
+                        <div class="portfolio-item-title">Tampa Hospital</div>
+                        <div class="portfolio-item-type">CT Ceiling</div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-title="Saudi Arabia" data-type="Multiple Hospital Rooms">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="Saudi Arabia Hospitals">
+                    <div class="portfolio-item-info">
+                        <div class="portfolio-item-title">Saudi Arabia</div>
+                        <div class="portfolio-item-type">Multiple Hospitals</div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-title="Medical Center Hospital" data-type="Odessa MRI">
+                    <img src="https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=600&q=80" alt="Medical Center Hospital">
+                    <div class="portfolio-item-info">
+                        <div class="portfolio-item-title">Medical Center Hospital</div>
+                        <div class="portfolio-item-type">Odessa MRI</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA after portfolio -->
+            <div style="text-align: center; margin-top: 60px;">
+                <p style="color: #888; font-size: 15px; margin-bottom: 24px;">
+                    Interested in transforming your space? Let's discuss your project.
+                </p>
+                <a href="contact.html" class="btn-primary">Get a Free Consultation &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="../index.html" class="logo">MEDICAL MURALS, LLC</a>
+                    <p>
+                        Lighting Interiors With The Beauty Of The Outdoors. Premium backlit murals, LED systems,
+                        and luminous solutions for healthcare and commercial spaces worldwide.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>Products</h4>
+                    <a href="mural-choices.html">Backlit Murals</a>
+                    <a href="domes.html">Ceiling Domes</a>
+                    <a href="plug-play.html">Plug &amp; Play</a>
+                    <a href="digital-motion.html">Digital Motion</a>
+                    <a href="office-murals.html">Office Murals</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="portfolio.html">Portfolio</a>
+                    <a href="mri-linac.html">MRI &amp; LINAC</a>
+                    <a href="http://anyflip.com/pyws/mabe/" target="_blank">Design Booklet</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+                <div class="footer-col footer-contact">
+                    <h4>Contact</h4>
+                    <p><strong>Phone:</strong> <a href="tel:4077928916">407-792-8916</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:info@medicalmurals.com">info@medicalmurals.com</a></p>
+                    <p><strong>Address:</strong> 2541 N. Dale Mabry Hwy. Suite 169, Tampa, FL 33607</p>
+                    <p style="margin-top:8px; color:#445566; font-size:12.5px;">London · Paris · Riyadh · Bogota · Sao Paulo · Tampa</p>
+                </div>
+            </div>
+            <hr class="footer-divider">
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    &copy; 2024 Medical Murals, LLC. All rights reserved. &nbsp;|&nbsp;
+                    <a href="#">Privacy Policy</a> &nbsp;|&nbsp;
+                    <a href="#">Terms of Service</a>
+                </div>
+                <div class="footer-btn-group">
+                    <a href="https://www.usvideowalls.com" target="_blank" class="footer-btn">Video Walls</a>
+                    <a href="https://www.uswaterwalls.com" target="_blank" class="footer-btn">Water Walls</a>
+                    <a href="http://anyflip.com/pyws/mabe/" target="_blank" class="footer-btn footer-btn-highlight">&#9654; Design Book</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox-overlay">
+        <span class="lightbox-close">&times;</span>
+        <div style="text-align: center;">
+            <img src="" alt="Enlarged view">
+            <div style="color: #fff; margin-top: 20px; font-size: 16px; font-weight: 600;" id="lightboxCaption"></div>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // Portfolio lightbox with captions
+        document.querySelectorAll('.portfolio-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const img = item.querySelector('img');
+                const title = item.dataset.title;
+                const type = item.dataset.type;
+                const lightbox = document.querySelector('.lightbox-overlay');
+                const lightboxImg = lightbox.querySelector('img');
+                const lightboxCaption = document.getElementById('lightboxCaption');
+
+                lightboxImg.src = img.src;
+                lightboxCaption.textContent = `${title} — ${type}`;
+                lightbox.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
