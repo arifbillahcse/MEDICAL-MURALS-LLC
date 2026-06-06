@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mural Choices — Medical Murals, LLC</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+
+        /* ===== PAGE HERO ===== */
+        .page-hero {
+            background: linear-gradient(135deg, #0a1628 0%, #1a3060 50%, #0f2040 100%);
+            padding: 80px 0 70px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: -150px; left: 50%;
+            transform: translateX(-50%);
+            width: 700px; height: 700px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(232,138,46,0.1) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .page-hero .container { position: relative; z-index: 1; }
+
+        .page-hero .badge {
+            display: inline-block;
+            background: rgba(232,138,46,0.15);
+            border: 1px solid rgba(232,138,46,0.4);
+            color: #e88a2e;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 6px 18px;
+            border-radius: 30px;
+            margin-bottom: 20px;
+        }
+
+        .page-hero h1 {
+            font-size: 48px;
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: -0.5px;
+            margin-bottom: 18px;
+            line-height: 1.1;
+        }
+
+        .page-hero h1 span { color: #e88a2e; }
+
+        .page-hero p {
+            font-size: 17px;
+            color: #8899bb;
+            max-width: 620px;
+            margin: 0 auto 32px;
+            line-height: 1.75;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+            padding-top: 36px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .hero-stat-num {
+            font-size: 32px;
+            font-weight: 900;
+            color: #e88a2e;
+            line-height: 1;
+        }
+
+        .hero-stat-label {
+            font-size: 12px;
+            color: #6677aa;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 6px;
+        }
+
+        /* ===== INTRO SECTION ===== */
+        .intro-banner {
+            background: linear-gradient(135deg, #fffbf7 0%, #fff8f2 100%);
+            border-bottom: 3px solid #e88a2e;
+            padding: 56px 0;
+        }
+
+        .intro-banner .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .intro-banner-img {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 16px 48px rgba(0,0,0,0.12);
+        }
+
+        .intro-banner-img img {
+            width: 100%;
+            height: 360px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .intro-banner-img:hover img { transform: scale(1.05); }
+
+        .intro-banner-text .section-label {
+            color: #e88a2e;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 14px;
+            display: block;
+        }
+
+        .intro-banner-text h2 {
+            font-size: 32px;
+            font-weight: 800;
+            color: #111;
+            line-height: 1.25;
+            letter-spacing: -0.4px;
+            margin-bottom: 18px;
+        }
+
+        .intro-banner-text p {
+            color: #555;
+            font-size: 15px;
+            line-height: 1.85;
+            margin-bottom: 14px;
+        }
+
+        .intro-banner-text p strong {
+            color: #222;
+            font-weight: 700;
+        }
+
+        .call-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+            background: linear-gradient(135deg, #e88a2e, #cc5500);
+            color: #fff;
+            font-size: 14px;
+            font-weight: 700;
+            padding: 13px 32px;
+            border-radius: 6px;
+            box-shadow: 0 6px 20px rgba(232,138,46,0.4);
+            transition: all 0.3s ease;
+        }
+
+        .call-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 32px rgba(232,138,46,0.6);
+        }
+
+        /* ===== SECTION HEADER ===== */
+        .section-header {
+            text-align: center;
+            margin-bottom: 52px;
+        }
+
+        .section-label {
+            display: block;
+            color: #e88a2e;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 800;
+            color: #111;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+            margin-bottom: 14px;
+        }
+
+        .section-sub {
+            color: #666;
+            font-size: 15.5px;
+            max-width: 560px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ===== CATEGORY GRID ===== */
+        .categories-section {
+            padding: 80px 0;
+            background: #f4f6f9;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .category-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.1);
+            transition: all 0.35s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 48px rgba(0,0,0,0.18);
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            display: block;
+        }
+
+        .category-card:hover img { transform: scale(1.1); }
+
+        .category-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px 18px;
+            transition: background 0.35s ease;
+        }
+
+        .category-card:hover .category-overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+        }
+
+        .category-name {
+            color: #fff;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .category-count {
+            color: #e88a2e;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .category-arrow {
+            position: absolute;
+            top: 14px; right: 14px;
+            width: 30px; height: 30px;
+            background: rgba(232,138,46,0);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .category-card:hover .category-arrow {
+            background: #e88a2e;
+            transform: rotate(45deg);
+        }
+
+        /* ===== SHOWCASE FEATURE ===== */
+        .showcase-section {
+            padding: 80px 0;
+            background: #fff;
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 32px;
+            align-items: start;
+        }
+
+        .showcase-main {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+            position: relative;
+        }
+
+        .showcase-main img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .showcase-main-badge {
+            position: absolute;
+            top: 20px; left: 20px;
+            background: #e88a2e;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 5px 14px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .showcase-thumbs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: repeat(3, 1fr);
+            gap: 14px;
+        }
+
+        .showcase-thumb {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .showcase-thumb:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 28px rgba(0,0,0,0.16);
+        }
+
+        .showcase-thumb img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .showcase-thumb:hover img { transform: scale(1.08); }
+
+        /* ===== LIGHTING OPTIONS ===== */
+        .lighting-section {
+            padding: 80px 0;
+            background: #f4f6f9;
+        }
+
+        .lighting-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .lighting-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 32px 24px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 1px solid #eee;
+            transition: all 0.3s ease;
+        }
+
+        .lighting-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 14px 40px rgba(0,0,0,0.1);
+            border-color: #e88a2e;
+        }
+
+        .lighting-icon {
+            font-size: 40px;
+            margin-bottom: 16px;
+        }
+
+        .lighting-card h3 {
+            font-size: 17px;
+            font-weight: 700;
+            color: #111;
+            margin-bottom: 10px;
+        }
+
+        .lighting-card p {
+            font-size: 13.5px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* ===== FINISH OPTIONS ===== */
+        .finish-section {
+            padding: 80px 0;
+            background: #fff;
+        }
+
+        .finish-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .finish-card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+            border: 2px solid transparent;
+            transition: all 0.35s ease;
+            cursor: default;
+        }
+
+        .finish-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 48px rgba(0,0,0,0.13);
+            border-color: #e88a2e;
+        }
+
+        .finish-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .finish-card:hover img { transform: scale(1.05); }
+
+        .finish-card-body {
+            padding: 24px;
+            background: #fff;
+        }
+
+        .finish-card-body h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #111;
+            margin-bottom: 8px;
+        }
+
+        .finish-card-body p {
+            font-size: 13.5px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .finish-badge {
+            display: inline-block;
+            background: #fff3e8;
+            color: #e88a2e;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== CTA STRIP ===== */
+        .cta-strip {
+            background: linear-gradient(135deg, #0a1628 0%, #1a3060 50%, #0f2040 100%);
+            padding: 70px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-strip::before {
+            content: '';
+            position: absolute;
+            top: -150px; left: 50%;
+            transform: translateX(-50%);
+            width: 800px; height: 800px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(232,138,46,0.09) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .cta-strip .container { position: relative; z-index: 1; }
+
+        .cta-strip h2 {
+            font-size: 36px;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 14px;
+            letter-spacing: -0.4px;
+        }
+
+        .cta-strip p {
+            color: #8899bb;
+            font-size: 16px;
+            margin-bottom: 32px;
+            max-width: 560px;
+            margin-inline: auto;
+            line-height: 1.7;
+        }
+
+        .cta-strip .btn-row {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #e88a2e, #cc5500);
+            color: #fff;
+            font-size: 14px;
+            font-weight: 700;
+            padding: 14px 38px;
+            border-radius: 6px;
+            box-shadow: 0 6px 24px rgba(232,138,46,0.5);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 36px rgba(232,138,46,0.7);
+        }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 2px solid rgba(255,255,255,0.25);
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 12px 36px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            border-color: #e88a2e;
+            color: #e88a2e;
+            transform: translateY(-3px);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .page-hero h1 { font-size: 36px; }
+            .intro-banner .container { gap: 36px; }
+            .categories-grid { grid-template-columns: repeat(2, 1fr); }
+            .showcase-grid { grid-template-columns: 1fr; }
+            .showcase-thumbs { grid-template-columns: repeat(3, 1fr); grid-template-rows: auto; }
+            .showcase-main img { height: 360px; }
+            .lighting-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .page-hero { padding: 60px 0 50px; }
+            .page-hero h1 { font-size: 28px; }
+            .hero-stats { gap: 28px; }
+
+            .intro-banner .container { grid-template-columns: 1fr; gap: 28px; }
+            .intro-banner-img img { height: 240px; }
+            .intro-banner-text h2 { font-size: 24px; }
+
+            .categories-section,
+            .showcase-section,
+            .lighting-section,
+            .finish-section { padding: 50px 0; }
+
+            .section-title { font-size: 26px; }
+
+            .categories-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+
+            .showcase-thumbs { grid-template-columns: repeat(2, 1fr); }
+
+            .lighting-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+            .lighting-card { padding: 24px 18px; }
+
+            .finish-grid { grid-template-columns: 1fr; }
+
+            .cta-strip h2 { font-size: 26px; }
+            .cta-strip .btn-row { flex-direction: column; align-items: center; }
+        }
+
+        @media (max-width: 480px) {
+            .categories-grid { grid-template-columns: 1fr 1fr; }
+            .category-card img { height: 160px; }
+            .lighting-grid { grid-template-columns: 1fr; }
+            .showcase-thumbs { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="header-brand">
+                <a href="../index.html" class="logo">MEDICAL MURALS, LLC</a>
+                <span class="header-tagline">Lighting Interiors With The Beauty Of The Outdoors</span>
+            </div>
+            <a href="http://anyflip.com/pyws/mabe/" target="_blank" class="header-design-btn">Our Design</a>
+        </div>
+    </header>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="main-nav">
+        <div class="nav-inner">
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul id="navMenu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="mural-choices.html" class="active">Mural Choices</a></li>
+                <li><a href="mri-linac.html">MRI LINAC</a></li>
+                <li><a href="domes.html">Domes</a></li>
+                <li><a href="plug-play.html">Plug &amp; Play</a></li>
+                <li><a href="digital-motion.html">Digital Motion</a></li>
+                <li><a href="office-murals.html">Office Murals</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ===== PAGE HERO ===== -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="badge">100,000+ Image Choices</div>
+            <h1>Find Your <span>Perfect Mural</span></h1>
+            <p>
+                From tropical beaches to mountain peaks, African savannahs to starlit skies —
+                our vast collection lets you create a space that heals, inspires, and transforms.
+            </p>
+            <div class="hero-stats">
+                <div>
+                    <div class="hero-stat-num">100,000+</div>
+                    <div class="hero-stat-label">Image Choices</div>
+                </div>
+                <div>
+                    <div class="hero-stat-num">Famous</div>
+                    <div class="hero-stat-label">Photographers</div>
+                </div>
+                <div>
+                    <div class="hero-stat-num">24/7</div>
+                    <div class="hero-stat-label">Always Working</div>
+                </div>
+                <div>
+                    <div class="hero-stat-num">#1</div>
+                    <div class="hero-stat-label">Lowest Prices</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== INTRO BANNER ===== -->
+    <section class="intro-banner">
+        <div class="container">
+            <div class="intro-banner-img reveal">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80" alt="Mural Example">
+            </div>
+            <div class="intro-banner-text reveal">
+                <span class="section-label">Why Our Murals</span>
+                <h2>Over 100,000 Choices. Endless Possibilities.</h2>
+                <p>
+                    Medical Murals has over <strong>100,000 picture choices</strong> for your murals, many done by
+                    famous photographers. If you want one wall overlooking the African Savannah and the other
+                    gazing out on a sunny beach — each will look as authentic as can be.
+                </p>
+                <p>
+                    With so many choices, colors, scenes, and landscapes, your imagination can run wild.
+                    <strong>Beauty is healing and calming</strong> — and in this case, very inexpensive.
+                    A beautiful scene will set the atmosphere better than any music or air fresheners,
+                    and it is there 24/7, even if you are not.
+                </p>
+                <p>
+                    For your waiting room, restaurant, lobby, or meeting room, you can make a statement
+                    like few others — <strong>a statement of beauty, class, and commitment.</strong>
+                </p>
+                <a href="contact.html" class="call-cta">Call Medical Murals Today &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== IMAGE CATEGORIES ===== -->
+    <section class="categories-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Browse By Category</span>
+                <h2 class="section-title">Explore Our Image Library</h2>
+                <p class="section-sub">Choose from thousands of scenes across every environment and mood.</p>
+            </div>
+            <div class="categories-grid">
+                <div class="category-card reveal">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500&q=80" alt="Beach & Ocean">
+                    <div class="category-overlay">
+                        <div class="category-name">Beach &amp; Ocean</div>
+                        <div class="category-count">Tropical, Coastal, Surf</div>
+                    </div>
+                    <div class="category-arrow">&#8599;</div>
+                </div>
+
+                <div class="category-card reveal">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=500&q=80" alt="Forests & Nature">
+                    <div class="category-overlay">
+                        <div class="category-name">Forests &amp; Nature</div>
+                        <div class="category-count">Trees, Wildlife, Meadows</div>
+                    </div>
+                    <div class="category-arrow">&#8599;</div>
+                </div>
+
+                <div class="category-card reveal">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&q=80" alt="Mountains & Sky">
+                    <div class="category-overlay">
+                        <div class="category-name">Mountains &amp; Sky</div>
+                        <div class="category-count">Peaks, Clouds, Sunsets</div>
+                    </div>
+                    <div class="category-arrow">&#8599;</div>
+                </div>
+
+                <div class="category-card reveal">
+                    <img src="https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=500&q=80" alt="Sky & Stars">
+                    <div class="category-overlay">
+                        <div class="category-name">Sky &amp; Stars</div>
+                        <div class="category-count">Night Sky, Galaxy, Aurora</div>
+                    </div>
+                    <div class="category-arrow">&#8599;</div>
+                </div>
+
+                <div class="category-card reveal">
+                    <img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=500&q=80" alt="Desert & Safari">
+                    <div class="category-overlay">
+                        <div class="category-name">Desert &amp; Safari</div>
+                        <div class="category-count">Savannah, Wildlife, Dunes</div>
+                    </div>
+                    <div class="category-arrow">&#8599;</div>
+                </div>
+
+                <div class="category-card reveal">
+                    <img src="https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=500&q=80" alt="Underwater">
+                    <div class="category-overlay">
+                        <div class="category-name">Underwater</div>
+                        <div class="category-count">Coral Reefs, Fish, Depths</div>
+                    </div>
+                    <div class="category-arrow">&#8599;</div>
+                </div>
+
+                <div class="category-card reveal">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80" alt="Flowers & Gardens">
+                    <div class="category-overlay">
+                        <div class="category-name">Flowers &amp; Gardens</div>
+                        <div class="category-count">Blossoms, Parks, Spring</div>
+                    </div>
+                    <div class="category-arrow">&#8599;</div>
+                </div>
+
+                <div class="category-card reveal">
+                    <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=500&q=80" alt="Landmarks & Cities">
+                    <div class="category-overlay">
+                        <div class="category-name">Landmarks &amp; Cities</div>
+                        <div class="category-count">Architecture, Skylines, Travel</div>
+                    </div>
+                    <div class="category-arrow">&#8599;</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SHOWCASE ===== -->
+    <section class="showcase-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">In Real Settings</span>
+                <h2 class="section-title">See How It Looks Installed</h2>
+                <p class="section-sub">Our murals transform any room — healthcare facilities, hotels, offices, and beyond.</p>
+            </div>
+            <div class="showcase-grid">
+                <div class="showcase-main reveal">
+                    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=900&q=80" alt="Main Showcase">
+                    <div class="showcase-main-badge">Featured Installation</div>
+                </div>
+                <div class="showcase-thumbs">
+                    <div class="showcase-thumb reveal">
+                        <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=400&q=80" alt="Showcase 1">
+                    </div>
+                    <div class="showcase-thumb reveal">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&q=80" alt="Showcase 2">
+                    </div>
+                    <div class="showcase-thumb reveal">
+                        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&q=80" alt="Showcase 3">
+                    </div>
+                    <div class="showcase-thumb reveal">
+                        <img src="https://images.unsplash.com/photo-1538368819871-a0e00b78a945?w=400&q=80" alt="Showcase 4">
+                    </div>
+                    <div class="showcase-thumb reveal">
+                        <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?w=400&q=80" alt="Showcase 5">
+                    </div>
+                    <div class="showcase-thumb reveal">
+                        <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&q=80" alt="Showcase 6">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== LIGHTING OPTIONS ===== -->
+    <section class="lighting-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Lighting Options</span>
+                <h2 class="section-title">Choose Your Brightness Level</h2>
+                <p class="section-sub">Every mural can be ordered with multiple lighting configurations to suit your space.</p>
+            </div>
+            <div class="lighting-grid">
+                <div class="lighting-card reveal">
+                    <div class="lighting-icon">☀️</div>
+                    <h3>SuperBrite</h3>
+                    <p>Maximum brightness for large, open spaces or high-ambient-light environments.</p>
+                </div>
+                <div class="lighting-card reveal">
+                    <div class="lighting-icon">💡</div>
+                    <h3>Standard</h3>
+                    <p>The perfect balance of brightness and energy efficiency for most environments.</p>
+                </div>
+                <div class="lighting-card reveal">
+                    <div class="lighting-icon">🌙</div>
+                    <h3>LowLite</h3>
+                    <p>Subtle, calming illumination — ideal for patient rooms and relaxation spaces.</p>
+                </div>
+                <div class="lighting-card reveal">
+                    <div class="lighting-icon">🎚️</div>
+                    <h3>Dimmable LED</h3>
+                    <p>Full control from 0–100% brightness with LED efficiency and no mercury.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FINISH OPTIONS ===== -->
+    <section class="finish-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Finish Options</span>
+                <h2 class="section-title">High Gloss, No-Glare, or Mat</h2>
+                <p class="section-sub">All finishes are printed directly onto genuine Bayer® Acrylic — never Duratrans film.</p>
+            </div>
+            <div class="finish-grid">
+                <div class="finish-card reveal">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80" alt="High Gloss">
+                    <div class="finish-card-body">
+                        <span class="finish-badge">Most Popular</span>
+                        <h3>High Gloss</h3>
+                        <p>Rich, vivid colors that pop with an ultra-shiny finish. Creates depth and a 3D effect that brings your mural to life.</p>
+                    </div>
+                </div>
+                <div class="finish-card reveal">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80" alt="No-Glare">
+                    <div class="finish-card-body">
+                        <span class="finish-badge">Healthcare Favorite</span>
+                        <h3>No-Glare</h3>
+                        <p>Eliminates reflections and light bounce — ideal for MRI rooms, examination areas, and overhead ceiling installations.</p>
+                    </div>
+                </div>
+                <div class="finish-card reveal">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Mat Finish">
+                    <div class="finish-card-body">
+                        <span class="finish-badge">Premium Option</span>
+                        <h3>Mat Finish</h3>
+                        <p>A sophisticated, muted finish that enhances natural tones. Perfect for offices, waiting rooms, and hotel lobbies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA STRIP ===== -->
+    <section class="cta-strip">
+        <div class="container">
+            <h2>Ready to Choose Your Mural?</h2>
+            <p>
+                Browse our full design booklet or contact us today for a free consultation.
+                We'll help you find the perfect image for your space.
+            </p>
+            <div class="btn-row">
+                <a href="contact.html" class="btn-primary">Get a Free Quote &rarr;</a>
+                <a href="http://anyflip.com/pyws/mabe/" target="_blank" class="btn-outline">Download Design Booklet</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="../index.html" class="logo">MEDICAL MURALS, LLC</a>
+                    <p>Lighting Interiors With The Beauty Of The Outdoors. Premium backlit murals, LED systems,
+                    and luminous solutions for healthcare and commercial spaces worldwide.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Products</h4>
+                    <a href="mural-choices.html">Backlit Murals</a>
+                    <a href="domes.html">Ceiling Domes</a>
+                    <a href="plug-play.html">Plug &amp; Play</a>
+                    <a href="digital-motion.html">Digital Motion</a>
+                    <a href="office-murals.html">Office Murals</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="portfolio.html">Portfolio</a>
+                    <a href="mri-linac.html">MRI &amp; LINAC</a>
+                    <a href="http://anyflip.com/pyws/mabe/" target="_blank">Design Booklet</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+                <div class="footer-col footer-contact">
+                    <h4>Contact</h4>
+                    <p><strong>Phone:</strong> <a href="tel:4077928916">407-792-8916</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:info@medicalmurals.com">info@medicalmurals.com</a></p>
+                    <p><strong>Address:</strong> 2541 N. Dale Mabry Hwy. Suite 169, Tampa, FL 33607</p>
+                    <p style="margin-top:8px; color:#445566; font-size:12.5px;">London · Paris · Riyadh · Bogota · Sao Paulo · Tampa</p>
+                </div>
+            </div>
+            <hr class="footer-divider">
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    &copy; 2024 Medical Murals, LLC. All rights reserved. &nbsp;|&nbsp;
+                    <a href="#">Privacy Policy</a> &nbsp;|&nbsp;
+                    <a href="#">Terms of Service</a>
+                </div>
+                <div class="footer-btn-group">
+                    <a href="https://www.usvideowalls.com" target="_blank" class="footer-btn">Video Walls</a>
+                    <a href="https://www.uswaterwalls.com" target="_blank" class="footer-btn">Water Walls</a>
+                    <a href="http://anyflip.com/pyws/mabe/" target="_blank" class="footer-btn footer-btn-highlight">&#9654; Design Book</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
