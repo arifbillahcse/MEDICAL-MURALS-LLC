@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plug &amp; Play Murals — Medical Murals, LLC</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+
+        /* ===== PAGE HERO ===== */
+        .page-hero {
+            background: linear-gradient(135deg, #0a1628 0%, #1a3060 50%, #0f2040 100%);
+            padding: 90px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: -120px; left: 50%;
+            transform: translateX(-50%);
+            width: 700px; height: 700px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(232,138,46,0.1) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .page-hero .container { position: relative; z-index: 1; }
+
+        .page-hero .badge {
+            display: inline-block;
+            background: rgba(232,138,46,0.15);
+            border: 1px solid rgba(232,138,46,0.4);
+            color: #e88a2e;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 6px 18px;
+            border-radius: 30px;
+            margin-bottom: 22px;
+        }
+
+        .page-hero h1 {
+            font-size: 50px;
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .page-hero h1 span { color: #e88a2e; }
+
+        .page-hero p {
+            font-size: 18px;
+            color: #8899bb;
+            max-width: 680px;
+            margin: 0 auto 36px;
+            line-height: 1.75;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #e88a2e 0%, #cc5500 100%);
+            color: #fff;
+            font-size: 15px;
+            font-weight: 700;
+            padding: 14px 34px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(232,138,46,0.3);
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 40px rgba(232,138,46,0.4);
+        }
+
+        /* ===== INTRO STRIP ===== */
+        .intro-strip {
+            background: #fff;
+            border-bottom: 3px solid #e88a2e;
+            padding: 52px 0;
+        }
+
+        .intro-strip .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .intro-text h2 {
+            font-size: 36px;
+            font-weight: 900;
+            color: #0a1628;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .intro-text h2 span { color: #e88a2e; }
+
+        .intro-text p {
+            font-size: 16px;
+            color: #444;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .intro-img {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 48px rgba(0,0,0,0.12);
+        }
+
+        .intro-img img {
+            width: 100%;
+            height: 340px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* ===== FEATURES SECTION ===== */
+        .features-section {
+            background: #fafafa;
+            padding: 80px 0;
+        }
+
+        .features-section .section-title {
+            text-align: center;
+            margin-bottom: 52px;
+        }
+
+        .features-section .section-title h2 {
+            font-size: 40px;
+            font-weight: 900;
+            color: #0a1628;
+            margin-bottom: 14px;
+        }
+
+        .features-section .section-title h2 span { color: #e88a2e; }
+
+        .features-section .section-title p {
+            font-size: 16px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.75;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .feature-card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 36px 28px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 1px solid #eee;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, rgba(232,138,46,0.15) 0%, rgba(232,138,46,0.05) 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin: 0 auto 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 18px;
+            font-weight: 800;
+            color: #0a1628;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* ===== GALLERY SECTION ===== */
+        .gallery-section {
+            padding: 80px 0;
+            background: #fff;
+        }
+
+        .gallery-section .section-title {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .gallery-section .section-title h2 {
+            font-size: 38px;
+            font-weight: 900;
+            color: #0a1628;
+            margin-bottom: 12px;
+        }
+
+        .gallery-section .section-title h2 span { color: #e88a2e; }
+
+        .gallery-section .section-title p {
+            font-size: 16px;
+            color: #666;
+            max-width: 560px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .gallery-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 14px;
+        }
+
+        .gallery-layout .gal-main {
+            grid-row: 1 / 3;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .gallery-layout .gal-main img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-layout .gal-side {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .gallery-layout .gal-side img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gal-label {
+            position: absolute;
+            bottom: 12px;
+            left: 12px;
+            background: rgba(10,22,40,0.85);
+            color: #e88a2e;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 5px 12px;
+            border-radius: 4px;
+        }
+
+        /* ===== USE CASES ===== */
+        .use-cases {
+            background: #fafafa;
+            padding: 80px 0;
+        }
+
+        .use-cases .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .use-cases .section-title h2 {
+            font-size: 38px;
+            font-weight: 900;
+            color: #0a1628;
+            margin-bottom: 12px;
+        }
+
+        .use-cases .section-title h2 span { color: #e88a2e; }
+
+        .use-cases-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .use-case-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+            border: 1px solid #eee;
+            transition: transform 0.3s ease;
+        }
+
+        .use-case-card:hover { transform: translateY(-5px); }
+
+        .use-case-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .use-case-info {
+            padding: 20px;
+        }
+
+        .use-case-info h4 {
+            font-size: 16px;
+            font-weight: 800;
+            color: #0a1628;
+            margin-bottom: 6px;
+        }
+
+        .use-case-info p {
+            font-size: 13px;
+            color: #777;
+            line-height: 1.6;
+        }
+
+        /* ===== CTA ===== */
+        .cta-section {
+            background: linear-gradient(135deg, #0a1628 0%, #1a3060 100%);
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 600px; height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(232,138,46,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-section .container { position: relative; z-index: 1; }
+
+        .cta-section h2 {
+            font-size: 40px;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            font-size: 17px;
+            color: #8899bb;
+            margin-bottom: 36px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.75;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #e88a2e 0%, #cc5500 100%);
+            color: #fff;
+            font-size: 15px;
+            font-weight: 700;
+            padding: 16px 40px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(232,138,46,0.3);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(232,138,46,0.4);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .intro-strip .container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .use-cases-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-layout {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+
+            .gallery-layout .gal-main { grid-row: auto; }
+            .gallery-layout .gal-main img { height: 320px; }
+
+            .page-hero h1 { font-size: 38px; }
+        }
+
+        @media (max-width: 768px) {
+            .features-grid { grid-template-columns: 1fr; }
+            .use-cases-grid { grid-template-columns: 1fr 1fr; }
+            .page-hero h1 { font-size: 30px; }
+            .page-hero p { font-size: 15px; }
+            .intro-text h2 { font-size: 28px; }
+            .cta-section h2 { font-size: 28px; }
+        }
+
+        @media (max-width: 480px) {
+            .use-cases-grid { grid-template-columns: 1fr; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="header-brand">
+                <a href="../index.html" class="logo">MEDICAL MURALS, LLC</a>
+                <span class="header-tagline">Lighting Interiors With The Beauty Of The Outdoors</span>
+            </div>
+            <a href="http://anyflip.com/pyws/mabe/" target="_blank" class="header-design-btn">Our Design</a>
+        </div>
+    </header>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="main-nav">
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul id="navMenu">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="mural-choices.html">Mural Choices</a></li>
+            <li><a href="mri-linac.html">MRI LINAC</a></li>
+            <li><a href="domes.html">Domes</a></li>
+            <li><a href="plug-play.html" class="active">Plug &amp; Play</a></li>
+            <li><a href="digital-motion.html">Digital Motion</a></li>
+            <li><a href="office-murals.html">Office Murals</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- ===== PAGE HERO ===== -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="badge">Ready Out of the Box</div>
+            <h1>Plug &amp; Play Murals<br>For <span>Any Room</span> Including MRI</h1>
+            <p>
+                Our framed LED wall murals are ready to go right out of the box. Simply plug them into any standard outlet,
+                wire them to a switch, or connect to an MRI Room filter — instant transformation, zero complexity.
+            </p>
+            <a href="contact.html" class="hero-cta">Get a Free Quote &rarr;</a>
+        </div>
+    </section>
+
+    <!-- ===== INTRO STRIP ===== -->
+    <section class="intro-strip">
+        <div class="container">
+            <div class="intro-text reveal">
+                <h2>Transform Any Space<br>with a <span>Backlit Window</span></h2>
+                <p>
+                    A Medical Murals Plug &amp; Play Mural can change the entire atmosphere of your waiting room for the better.
+                    You can have a backlit window overlooking any scene you want — a serene forest, a tropical beach, or a mountain vista.
+                </p>
+                <p>
+                    A cool, calm mural to reassure your patients and their families can only do everyone good.
+                    Cost-effective decor that really works. These are sometimes seen mounted as pairs or sets with a divided image
+                    for a stunning, gallery-style contemporary look.
+                </p>
+                <p>
+                    Group them for a contemporary look — pairs and sets with a divided image create a seamless panoramic effect
+                    that makes any room feel larger, brighter, and more welcoming.
+                </p>
+            </div>
+            <div class="intro-img reveal">
+                <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?w=700&q=80" alt="Plug and Play Mural Installation">
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FEATURES ===== -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Everything You Need, <span>Nothing You Don't</span></h2>
+                <p>Designed for effortless installation and maximum impact — our Plug &amp; Play system is built for busy healthcare environments.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card reveal">
+                    <div class="feature-icon">&#128241;</div>
+                    <h3>Variety of Sizes &amp; Colors</h3>
+                    <p>Available in a wide range of sizes and color temperatures to perfectly suit your room dimensions and design aesthetic.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">&#128276;</div>
+                    <h3>Slimline Design — Only 1" Deep</h3>
+                    <p>Our ultra-thin 1-inch profile sits flush against the wall with minimal protrusion, preserving precious floor space.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">&#9889;</div>
+                    <h3>LED Lighting &amp; MRI Safe</h3>
+                    <p>Powered by energy-efficient LED technology and fully compatible with MRI room filter systems — no compromise on safety.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">&#128247;</div>
+                    <h3>Easily Swap Out Pictures</h3>
+                    <p>Change the image whenever you want — swap seasonal scenes, update to match renovations, or refresh for new patients.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">&#127774;</div>
+                    <h3>Low Power Consumption</h3>
+                    <p>LED efficiency means minimal electricity usage — these panels cost very little to run while delivering maximum visual impact.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">&#128296;</div>
+                    <h3>Simple Installation</h3>
+                    <p>Plug into any standard outlet or wire to a switch. No special tools, no structural work — truly ready right out of the box.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== GALLERY ===== -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Group Them for a <span>Contemporary Look</span></h2>
+                <p>Mount as pairs or sets with a divided image for a seamless, gallery-quality panoramic effect.</p>
+            </div>
+            <div class="gallery-layout">
+                <div class="gal-main">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80" alt="Panoramic Mural Display">
+                    <span class="gal-label">Panoramic Pair Set</span>
+                </div>
+                <div class="gal-side">
+                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&q=80" alt="Single Panel Install">
+                    <span class="gal-label">Single Panel</span>
+                </div>
+                <div class="gal-side">
+                    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&q=80" alt="Divided Image Set">
+                    <span class="gal-label">Divided Image Set</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== USE CASES ===== -->
+    <section class="use-cases">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Perfect For Every <span>Healthcare Setting</span></h2>
+            </div>
+            <div class="use-cases-grid">
+                <div class="use-case-card reveal">
+                    <img src="https://images.unsplash.com/photo-1538368819871-a0e00b78a945?w=500&q=80" alt="Waiting Room">
+                    <div class="use-case-info">
+                        <h4>Waiting Rooms</h4>
+                        <p>Calm anxious patients and families with soothing nature scenes before appointments.</p>
+                    </div>
+                </div>
+                <div class="use-case-card reveal">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=500&q=80" alt="MRI Room">
+                    <div class="use-case-info">
+                        <h4>MRI Rooms</h4>
+                        <p>MRI-safe filtered connection ensures full compatibility with sensitive imaging environments.</p>
+                    </div>
+                </div>
+                <div class="use-case-card reveal">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=500&q=80" alt="Hallways">
+                    <div class="use-case-info">
+                        <h4>Hallways &amp; Corridors</h4>
+                        <p>Transform bland corridors into welcoming passages with stunning landscape imagery.</p>
+                    </div>
+                </div>
+                <div class="use-case-card reveal">
+                    <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&q=80" alt="Treatment Rooms">
+                    <div class="use-case-info">
+                        <h4>Treatment Rooms</h4>
+                        <p>Give patients a calming focal point during procedures to reduce stress and improve outcomes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Plug In and Transform?</h2>
+            <p>
+                Get started with Plug &amp; Play murals that arrive ready to install.
+                Contact us for sizing, image selection, and a free custom quote.
+            </p>
+            <a href="contact.html" class="cta-btn">Request a Free Quote</a>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-col">
+                <p class="footer-tagline">MEDICAL MURALS</p>
+                <p class="footer-subtitle">Lighting Interiors With The Beauty Of The Outdoors.</p>
+            </div>
+            <div class="footer-col">
+                <p class="footer-title">Company</p>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="mural-choices.html">Mural Choices</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <p class="footer-title">Products</p>
+                <ul>
+                    <li><a href="mri-linac.html">MRI LINAC</a></li>
+                    <li><a href="domes.html">Domes</a></li>
+                    <li><a href="plug-play.html">Plug &amp; Play</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <p class="footer-title">Resources</p>
+                <ul>
+                    <li><a href="digital-motion.html">Digital Motion</a></li>
+                    <li><a href="office-murals.html">Office Murals</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Medical Murals, LLC. All rights reserved.</p>
+            <p>Principal Office: Sarasota, Florida | Worldwide Locations</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
