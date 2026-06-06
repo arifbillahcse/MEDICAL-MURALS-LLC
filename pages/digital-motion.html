@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Motion Systems — Medical Murals, LLC</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+
+        /* ===== PAGE HERO ===== */
+        .page-hero {
+            background: linear-gradient(135deg, #050d1a 0%, #0a1628 50%, #0f2040 100%);
+            padding: 90px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 60% 50% at 20% 50%, rgba(232,138,46,0.06) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 50% at 80% 50%, rgba(30,80,160,0.12) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .page-hero .container { position: relative; z-index: 1; }
+
+        .page-hero .badge {
+            display: inline-block;
+            background: rgba(232,138,46,0.15);
+            border: 1px solid rgba(232,138,46,0.4);
+            color: #e88a2e;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 6px 18px;
+            border-radius: 30px;
+            margin-bottom: 22px;
+        }
+
+        .page-hero h1 {
+            font-size: 52px;
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: -1px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .page-hero h1 span { color: #e88a2e; }
+
+        .page-hero p {
+            font-size: 18px;
+            color: #8899bb;
+            max-width: 680px;
+            margin: 0 auto 36px;
+            line-height: 1.75;
+        }
+
+        .hero-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .hero-link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: #ccd9f0;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 11px 22px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .hero-link-btn:hover {
+            background: rgba(232,138,46,0.15);
+            border-color: rgba(232,138,46,0.4);
+            color: #e88a2e;
+        }
+
+        .hero-link-btn.primary {
+            background: linear-gradient(135deg, #e88a2e 0%, #cc5500 100%);
+            border-color: transparent;
+            color: #fff;
+        }
+
+        .hero-link-btn.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(232,138,46,0.35);
+            background: linear-gradient(135deg, #e88a2e 0%, #cc5500 100%);
+            color: #fff;
+        }
+
+        /* ===== PRODUCT SECTION ===== */
+        .product-section {
+            padding: 84px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.07);
+        }
+
+        .product-section.dark {
+            background: #050d1a;
+        }
+
+        .product-section.light {
+            background: #fff;
+        }
+
+        .product-section.tinted {
+            background: #f7f9fc;
+        }
+
+        .product-section .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .product-section.reverse .product-text { order: 2; }
+        .product-section.reverse .product-media  { order: 1; }
+
+        /* ===== MEDIA BLOCK ===== */
+        .product-media {
+            position: relative;
+        }
+
+        .media-frame {
+            position: relative;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 24px 60px rgba(0,0,0,0.2);
+        }
+
+        .media-frame img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .dark .media-frame {
+            box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(232,138,46,0.15);
+        }
+
+        .media-label {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            background: rgba(232,138,46,0.92);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 4px;
+        }
+
+        .media-dual {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .media-dual img {
+            width: 100%;
+            height: 185px;
+            object-fit: cover;
+            border-radius: 10px;
+            display: block;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+
+        /* ===== TEXT BLOCK ===== */
+        .product-text .section-badge {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 5px 16px;
+            border-radius: 20px;
+            margin-bottom: 18px;
+        }
+
+        .dark .section-badge {
+            background: rgba(232,138,46,0.15);
+            border: 1px solid rgba(232,138,46,0.35);
+            color: #e88a2e;
+        }
+
+        .light .section-badge,
+        .tinted .section-badge {
+            background: rgba(232,138,46,0.1);
+            border: 1px solid rgba(232,138,46,0.3);
+            color: #c96800;
+        }
+
+        .product-text h2 {
+            font-size: 38px;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 22px;
+        }
+
+        .dark .product-text h2 { color: #fff; }
+        .light .product-text h2,
+        .tinted .product-text h2 { color: #0a1628; }
+
+        .product-text h2 span { color: #e88a2e; }
+
+        .product-text p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .dark .product-text p { color: #8899bb; }
+        .light .product-text p,
+        .tinted .product-text p { color: #444; }
+
+        .product-text p:last-of-type { margin-bottom: 0; }
+
+        .feature-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 26px;
+        }
+
+        .pill {
+            font-size: 13px;
+            font-weight: 600;
+            padding: 7px 16px;
+            border-radius: 20px;
+        }
+
+        .dark .pill {
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.12);
+            color: #ccd9f0;
+        }
+
+        .light .pill,
+        .tinted .pill {
+            background: rgba(232,138,46,0.08);
+            border: 1px solid rgba(232,138,46,0.25);
+            color: #0a1628;
+        }
+
+        /* ===== SISTER SITES BANNER ===== */
+        .sister-banner {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 52px 0;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .sister-banner .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .sister-text h3 {
+            font-size: 24px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .sister-text p {
+            font-size: 15px;
+            color: #8899bb;
+            line-height: 1.65;
+            max-width: 500px;
+        }
+
+        .sister-btns {
+            display: flex;
+            gap: 14px;
+            flex-shrink: 0;
+            flex-wrap: wrap;
+        }
+
+        .sister-btn {
+            display: inline-block;
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: #ccd9f0;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .sister-btn:hover {
+            background: rgba(232,138,46,0.15);
+            border-color: #e88a2e;
+            color: #e88a2e;
+        }
+
+        /* ===== CTA ===== */
+        .cta-section {
+            background: linear-gradient(135deg, #0a1628 0%, #1a3060 100%);
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 600px; height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(232,138,46,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-section .container { position: relative; z-index: 1; }
+
+        .cta-section h2 {
+            font-size: 40px;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            font-size: 17px;
+            color: #8899bb;
+            margin-bottom: 36px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.75;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #e88a2e 0%, #cc5500 100%);
+            color: #fff;
+            font-size: 15px;
+            font-weight: 700;
+            padding: 16px 40px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(232,138,46,0.3);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(232,138,46,0.4);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .product-section .container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .product-section.reverse .product-text,
+            .product-section.reverse .product-media {
+                order: initial;
+            }
+
+            .product-text h2 { font-size: 32px; }
+            .page-hero h1 { font-size: 40px; }
+
+            .sister-banner .container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .product-section { padding: 56px 0; }
+            .product-text h2 { font-size: 28px; }
+            .page-hero h1 { font-size: 32px; }
+            .page-hero p { font-size: 15px; }
+            .cta-section h2 { font-size: 28px; }
+            .media-frame img { height: 260px; }
+            .media-dual img { height: 140px; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="header-brand">
+                <a href="../index.html" class="logo">MEDICAL MURALS, LLC</a>
+                <span class="header-tagline">Lighting Interiors With The Beauty Of The Outdoors</span>
+            </div>
+            <a href="http://anyflip.com/pyws/mabe/" target="_blank" class="header-design-btn">Our Design</a>
+        </div>
+    </header>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="main-nav">
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul id="navMenu">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="mural-choices.html">Mural Choices</a></li>
+            <li><a href="mri-linac.html">MRI LINAC</a></li>
+            <li><a href="domes.html">Domes</a></li>
+            <li><a href="plug-play.html">Plug &amp; Play</a></li>
+            <li><a href="digital-motion.html" class="active">Digital Motion</a></li>
+            <li><a href="office-murals.html">Office Murals</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- ===== PAGE HERO ===== -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="badge">Next-Level Immersive Technology</div>
+            <h1>Digital <span>Motion</span> Systems</h1>
+            <p>
+                Video walls, virtual aquariums, and fiber optic displays that bring living, breathing environments
+                into your facility. Watch waves flow, clouds drift, and stars shimmer — all with zero maintenance.
+            </p>
+            <div class="hero-links">
+                <a href="https://www.usvideowalls.com" target="_blank" class="hero-link-btn">&#9654; www.usvideowalls.com</a>
+                <a href="https://www.uswaterwalls.com" target="_blank" class="hero-link-btn">&#9654; www.uswaterwalls.com</a>
+                <a href="contact.html" class="hero-link-btn primary">Get a Quote &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== VIDEO WALLS ===== -->
+    <section class="product-section dark">
+        <div class="container">
+            <div class="product-text reveal">
+                <span class="section-badge">Wall &amp; Ceiling</span>
+                <h2>Video Walls &mdash; <span>The Ultimate Attention Grabber</span></h2>
+                <p>
+                    This new technology provides video loops to use as an artificial window or skylight.
+                    We can also divide videos across multiple monitors or TVs for a seamless panoramic experience.
+                    Look out your false window and watch the waves flow in and the trees sway.
+                </p>
+                <p>
+                    Listen to the sound of a calm beach setting, or watch the clouds move past as you gaze up at the ceiling.
+                    These wall and ceiling videos can be mounted horizontal or vertical, and we offer a variety of
+                    ceiling frame and window/shutter packages.
+                </p>
+                <p>
+                    We have a large assortment of video loops to choose from, or we can customize one to your taste —
+                    including content, speed, and length.
+                </p>
+                <div class="feature-pills">
+                    <span class="pill">Wall or Ceiling Mount</span>
+                    <span class="pill">Horizontal or Vertical</span>
+                    <span class="pill">Multi-Monitor Divide</span>
+                    <span class="pill">Custom Video Loops</span>
+                    <span class="pill">Window &amp; Shutter Frames</span>
+                </div>
+            </div>
+            <div class="product-media reveal">
+                <div class="media-dual">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500&q=80" alt="Ocean Video Wall">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&q=80" alt="Sky Video Ceiling">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=500&q=80" alt="Forest Video Window">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=500&q=80" alt="Video Wall Installation">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== VIRTUAL AQUARIUMS ===== -->
+    <section class="product-section tinted reverse">
+        <div class="container">
+            <div class="product-text reveal">
+                <span class="section-badge">Virtual Marine Life</span>
+                <h2>Virtual <span>Aquariums</span></h2>
+                <p>
+                    Our aquariums are displayed on an LCD monitor or gang of monitors that we frame into a wall
+                    anywhere in your facility. The real-time movement is fascinating to watch and requires
+                    absolutely no tank maintenance.
+                </p>
+                <p>
+                    These systems are computer-based, so the fish and backgrounds can be easily changed to suit
+                    the season, theme, or preference of your patients — from tropical coral reefs to tranquil freshwater scenes.
+                    A captivating focal point that keeps patients calm and distracted.
+                </p>
+                <div class="feature-pills">
+                    <span class="pill">LCD Monitor Display</span>
+                    <span class="pill">No Tank Maintenance</span>
+                    <span class="pill">Changeable Fish &amp; Backgrounds</span>
+                    <span class="pill">Wall-Framed Integration</span>
+                    <span class="pill">Real-Time Motion</span>
+                </div>
+            </div>
+            <div class="product-media reveal">
+                <div class="media-frame" style="position:relative;">
+                    <img src="https://images.unsplash.com/photo-1559825481-12a05cc00344?w=700&q=80" alt="Virtual Aquarium Display">
+                    <span class="media-label">No Maintenance Required</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FIBER OPTIC ===== -->
+    <section class="product-section dark">
+        <div class="container">
+            <div class="product-text reveal">
+                <span class="section-badge">Star Fields &amp; Cove Lighting</span>
+                <h2>Fiber Optic <span>Displays</span></h2>
+                <p>
+                    We use fiber optic technology to create breathtaking Star Fields, elegant Cove Lighting,
+                    and fully custom lighting displays. These installations create an otherworldly atmosphere
+                    that patients find deeply calming and mesmerizing.
+                </p>
+                <p>
+                    Fiber optic panels can install as ceiling tile or into any type of surface — walls, soffits,
+                    curved ceilings — giving you complete creative freedom. Perfect for MRI rooms, waiting areas,
+                    children's wards, and anywhere a sense of wonder is needed.
+                </p>
+                <div class="feature-pills">
+                    <span class="pill">Star Field Ceilings</span>
+                    <span class="pill">Cove Lighting</span>
+                    <span class="pill">Custom Displays</span>
+                    <span class="pill">Ceiling Tile Install</span>
+                    <span class="pill">Any Surface Compatible</span>
+                </div>
+            </div>
+            <div class="product-media reveal">
+                <div class="media-frame" style="position:relative;">
+                    <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=700&q=80" alt="Fiber Optic Star Field">
+                    <span class="media-label">Fiber Optic Star Field</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SISTER SITES BANNER ===== -->
+    <div class="sister-banner">
+        <div class="container">
+            <div class="sister-text">
+                <h3>Explore Our Digital Product Sister Sites</h3>
+                <p>
+                    For the full range of video wall systems and water wall products, visit our dedicated sister sites
+                    for product galleries, specifications, and project case studies.
+                </p>
+            </div>
+            <div class="sister-btns">
+                <a href="https://www.usvideowalls.com" target="_blank" class="sister-btn">&#9654;&nbsp; www.usvideowalls.com</a>
+                <a href="https://www.uswaterwalls.com" target="_blank" class="sister-btn">&#9654;&nbsp; www.uswaterwalls.com</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== CTA ===== -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Bring Your Space to Life with Digital Motion</h2>
+            <p>
+                From video walls to virtual aquariums to fiber optic star fields, Medical Murals designs
+                digital environments that captivate, calm, and inspire. Let's build yours.
+            </p>
+            <a href="contact.html" class="cta-btn">Request a Free Consultation</a>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-col">
+                <p class="footer-tagline">MEDICAL MURALS</p>
+                <p class="footer-subtitle">Lighting Interiors With The Beauty Of The Outdoors.</p>
+            </div>
+            <div class="footer-col">
+                <p class="footer-title">Company</p>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="mural-choices.html">Mural Choices</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <p class="footer-title">Products</p>
+                <ul>
+                    <li><a href="mri-linac.html">MRI LINAC</a></li>
+                    <li><a href="domes.html">Domes</a></li>
+                    <li><a href="plug-play.html">Plug &amp; Play</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <p class="footer-title">Resources</p>
+                <ul>
+                    <li><a href="digital-motion.html">Digital Motion</a></li>
+                    <li><a href="office-murals.html">Office Murals</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Medical Murals, LLC. All rights reserved.</p>
+            <p>Principal Office: Sarasota, Florida | Worldwide Locations</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
