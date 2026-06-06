@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Office Murals — Medical Murals, LLC</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+
+        /* ===== PAGE HERO ===== */
+        .page-hero {
+            background: linear-gradient(135deg, #0a1628 0%, #1a3060 50%, #0f2040 100%);
+            padding: 90px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: -120px; left: 50%;
+            transform: translateX(-50%);
+            width: 700px; height: 700px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(232,138,46,0.1) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .page-hero .container { position: relative; z-index: 1; }
+
+        .page-hero .badge {
+            display: inline-block;
+            background: rgba(232,138,46,0.15);
+            border: 1px solid rgba(232,138,46,0.4);
+            color: #e88a2e;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 6px 18px;
+            border-radius: 30px;
+            margin-bottom: 22px;
+        }
+
+        .page-hero h1 {
+            font-size: 50px;
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .page-hero h1 span { color: #e88a2e; }
+
+        .page-hero p {
+            font-size: 18px;
+            color: #8899bb;
+            max-width: 660px;
+            margin: 0 auto;
+            line-height: 1.75;
+        }
+
+        /* ===== INTRO ===== */
+        .intro-section {
+            background: #fff;
+            padding: 76px 0;
+            border-bottom: 3px solid #e88a2e;
+        }
+
+        .intro-section .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .intro-text h2 {
+            font-size: 36px;
+            font-weight: 900;
+            color: #0a1628;
+            margin-bottom: 18px;
+            line-height: 1.2;
+        }
+
+        .intro-text h2 span { color: #e88a2e; }
+
+        .intro-text p {
+            font-size: 16px;
+            color: #444;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .intro-img {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 48px rgba(0,0,0,0.1);
+        }
+
+        .intro-img img {
+            width: 100%;
+            height: 360px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* ===== OPTIONS SECTION ===== */
+        .options-section {
+            background: #f7f9fc;
+            padding: 80px 0;
+        }
+
+        .options-section .section-title {
+            text-align: center;
+            margin-bottom: 52px;
+        }
+
+        .options-section .section-title h2 {
+            font-size: 38px;
+            font-weight: 900;
+            color: #0a1628;
+            margin-bottom: 14px;
+        }
+
+        .options-section .section-title h2 span { color: #e88a2e; }
+
+        .options-section .section-title p {
+            font-size: 16px;
+            color: #666;
+            max-width: 580px;
+            margin: 0 auto;
+            line-height: 1.75;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .option-card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 40px 30px 36px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 1px solid #eee;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .option-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 44px rgba(0,0,0,0.1);
+        }
+
+        .option-number {
+            width: 52px;
+            height: 52px;
+            background: linear-gradient(135deg, #e88a2e 0%, #cc5500 100%);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 22px;
+        }
+
+        .option-card h3 {
+            font-size: 19px;
+            font-weight: 800;
+            color: #0a1628;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .option-card p {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.75;
+        }
+
+        /* ===== PRODUCT SECTIONS ===== */
+        .product-section {
+            padding: 80px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.07);
+        }
+
+        .product-section:nth-child(even) { background: #fafafa; }
+        .product-section:nth-child(odd)  { background: #fff; }
+
+        .product-section .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .product-section.reverse .product-text { order: 2; }
+        .product-section.reverse .product-img  { order: 1; }
+
+        .product-img {
+            position: relative;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 20px 48px rgba(0,0,0,0.1);
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .product-img-badge {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            background: rgba(232,138,46,0.92);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 4px;
+        }
+
+        .product-text .section-badge {
+            display: inline-block;
+            background: rgba(232,138,46,0.1);
+            border: 1px solid rgba(232,138,46,0.3);
+            color: #c96800;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 5px 16px;
+            border-radius: 20px;
+            margin-bottom: 18px;
+        }
+
+        .product-text h2 {
+            font-size: 36px;
+            font-weight: 900;
+            color: #0a1628;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .product-text h2 span { color: #e88a2e; }
+
+        .product-text p {
+            font-size: 16px;
+            color: #444;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .product-text p:last-of-type { margin-bottom: 0; }
+
+        .check-list {
+            list-style: none;
+            padding: 0;
+            margin: 24px 0 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .check-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 15px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .check-list li::before {
+            content: '✓';
+            width: 22px;
+            height: 22px;
+            background: linear-gradient(135deg, #e88a2e 0%, #cc5500 100%);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* ===== PRICE CALLOUT ===== */
+        .price-callout {
+            background: linear-gradient(135deg, #0a1628 0%, #1a3060 100%);
+            padding: 52px 0;
+        }
+
+        .price-callout .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .price-text h3 {
+            font-size: 26px;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .price-text p {
+            font-size: 16px;
+            color: #8899bb;
+            max-width: 520px;
+            line-height: 1.7;
+        }
+
+        .price-text p strong {
+            color: #e88a2e;
+        }
+
+        .price-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #e88a2e 0%, #cc5500 100%);
+            color: #fff;
+            font-size: 14px;
+            font-weight: 700;
+            padding: 13px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 24px rgba(232,138,46,0.3);
+        }
+
+        .price-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 36px rgba(232,138,46,0.4);
+        }
+
+        /* ===== CTA ===== */
+        .cta-section {
+            background: linear-gradient(135deg, #0a1628 0%, #1a3060 100%);
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 600px; height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(232,138,46,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-section .container { position: relative; z-index: 1; }
+
+        .cta-section h2 {
+            font-size: 40px;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            font-size: 17px;
+            color: #8899bb;
+            margin-bottom: 36px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.75;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #e88a2e 0%, #cc5500 100%);
+            color: #fff;
+            font-size: 15px;
+            font-weight: 700;
+            padding: 16px 40px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(232,138,46,0.3);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(232,138,46,0.4);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .intro-section .container,
+            .product-section .container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .product-section.reverse .product-text,
+            .product-section.reverse .product-img {
+                order: initial;
+            }
+
+            .options-grid { grid-template-columns: 1fr; gap: 20px; }
+            .intro-text h2, .product-text h2 { font-size: 30px; }
+            .page-hero h1 { font-size: 38px; }
+
+            .price-callout .container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .product-section { padding: 52px 0; }
+            .intro-text h2, .product-text h2 { font-size: 26px; }
+            .page-hero h1 { font-size: 30px; }
+            .page-hero p { font-size: 15px; }
+            .cta-section h2 { font-size: 28px; }
+            .product-img img { height: 260px; }
+            .intro-img img { height: 260px; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="header-brand">
+                <a href="../index.html" class="logo">MEDICAL MURALS, LLC</a>
+                <span class="header-tagline">Lighting Interiors With The Beauty Of The Outdoors</span>
+            </div>
+            <a href="http://anyflip.com/pyws/mabe/" target="_blank" class="header-design-btn">Our Design</a>
+        </div>
+    </header>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="main-nav">
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul id="navMenu">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="mural-choices.html">Mural Choices</a></li>
+            <li><a href="mri-linac.html">MRI LINAC</a></li>
+            <li><a href="domes.html">Domes</a></li>
+            <li><a href="plug-play.html">Plug &amp; Play</a></li>
+            <li><a href="digital-motion.html">Digital Motion</a></li>
+            <li><a href="office-murals.html" class="active">Office Murals</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- ===== PAGE HERO ===== -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="badge">Office &amp; Home</div>
+            <h1>Office &amp; Home <span>Murals</span></h1>
+            <p>
+                Designed for the office or home, these murals and artwork panels are simply more affordable.
+                Add ambience to any room using your existing fluorescent lights — no renovation required.
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== INTRO ===== -->
+    <section class="intro-section">
+        <div class="container">
+            <div class="intro-text reveal">
+                <h2>Beautiful Art For <span>Any Budget</span></h2>
+                <p>
+                    Medical Murals brings the same quality craftsmanship and stunning visual impact of our healthcare
+                    products to the office and home market — at a price point that makes it accessible to everyone.
+                </p>
+                <p>
+                    Now you can add ambience to any room using your existing fluorescent lights.
+                    Choose from over 100,000 images in our gallery and let us do the rest —
+                    pre-cut and ready to install in minutes.
+                </p>
+                <p>
+                    Whether you want to brighten up a home office, transform a conference room, or refresh a commercial space,
+                    our office murals deliver a dramatic improvement in atmosphere without breaking the budget.
+                </p>
+            </div>
+            <div class="intro-img reveal">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=700&q=80" alt="Office Mural Installation">
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== THREE OPTIONS ===== -->
+    <section class="options-section">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Three Easy <span>Installation Options</span></h2>
+                <p>Choose the method that works best for your existing fixtures and space — all are simple, fast, and tool-free.</p>
+            </div>
+            <div class="options-grid">
+                <div class="option-card reveal">
+                    <div class="option-number">1</div>
+                    <h3>Replace the Lens or Diffuser</h3>
+                    <p>
+                        We cut the mural to replace the lens or diffuser in your existing or new fluorescent light fixture —
+                        up to 4' x 4'. Drop it right in and enjoy instant transformation with zero hardware required.
+                    </p>
+                </div>
+                <div class="option-card reveal">
+                    <div class="option-number">2</div>
+                    <h3>Velcro Frame Cover</h3>
+                    <p>
+                        We provide the mural with a Velcro-type strip around the edge that adheres over the outer frame of your
+                        fixture. Covers both the frame and lens for a clean, seamless finish — and removes easily whenever you want.
+                    </p>
+                </div>
+                <div class="option-card reveal">
+                    <div class="option-number">3</div>
+                    <h3>Stand-Off Mural</h3>
+                    <p>
+                        Our stand-off mural is spaced away from the wall or ceiling to create a distinctive floating effect.
+                        The gap between the panel and surface adds depth and dimension — a truly contemporary design statement.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== OFFICE MURAL PRODUCT ===== -->
+    <section class="product-section">
+        <div class="container">
+            <div class="product-text reveal">
+                <span class="section-badge">Attractively Priced</span>
+                <h2>Office <span>Murals</span></h2>
+                <p>
+                    These attractively priced Office Murals use Duratrans — the same product sold by many others across
+                    all of their murals. The difference is that ours are still printed with our high-end printer
+                    and acrylic, ensuring superior color depth and image clarity.
+                </p>
+                <p>
+                    You can select any photo from our Image Gallery containing over 100,000 choices.
+                    Murals come pre-cut to replace the Plexiglas lens in your existing light fixture,
+                    or sized to cover the outer frame and lens — ready to install straight out of the box.
+                </p>
+                <ul class="check-list">
+                    <li>Over 100,000 image choices from our gallery</li>
+                    <li>Printed on our high-end printer for superior quality</li>
+                    <li>Pre-cut to fit your existing fixture</li>
+                    <li>Works with standard fluorescent lighting</li>
+                    <li>Affordable pricing without sacrificing aesthetics</li>
+                </ul>
+            </div>
+            <div class="product-img reveal" style="position:relative;">
+                <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?w=700&q=80" alt="Office Mural">
+                <span class="product-img-badge">Works With Existing Lights</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== STAND-OFF MURAL ===== -->
+    <section class="product-section reverse">
+        <div class="container">
+            <div class="product-text reveal">
+                <span class="section-badge">Contemporary Look</span>
+                <h2>Stand-Off <span>Murals</span></h2>
+                <p>
+                    Our stand-off murals are mounted with a gap between the panel and the wall or ceiling surface,
+                    creating a striking floating effect that adds depth and dimension to any space.
+                </p>
+                <p>
+                    Perfect for reception areas, conference rooms, hallways, and feature walls — the stand-off design
+                    creates a gallery-quality presentation that draws the eye and elevates the entire room.
+                    Available in any size and any image from our collection.
+                </p>
+                <ul class="check-list">
+                    <li>Floating panel creates depth and visual interest</li>
+                    <li>Ideal for feature walls and reception areas</li>
+                    <li>Can be wall or ceiling mounted</li>
+                    <li>Any size, any image available</li>
+                    <li>Works as illuminated art even without a light fixture</li>
+                </ul>
+            </div>
+            <div class="product-img reveal" style="position:relative;">
+                <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=700&q=80" alt="Stand-Off Mural">
+                <span class="product-img-badge">Stand-Off Design</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PRICE CALLOUT ===== -->
+    <div class="price-callout">
+        <div class="container">
+            <div class="price-text">
+                <h3>Lowest Prices in the Industry</h3>
+                <p>
+                    Medical Murals is proud to offer the <strong>lowest prices of anyone in the industry</strong> —
+                    without compromising on print quality, image selection, or customer service.
+                    Browse our gallery of over 100,000 images and get a quote today.
+                </p>
+            </div>
+            <a href="mural-choices.html" class="price-link">Browse Image Gallery &rarr;</a>
+        </div>
+    </div>
+
+    <!-- ===== CTA ===== -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Add Ambience to Your Space?</h2>
+            <p>
+                Choose from over 100,000 images and let Medical Murals create the perfect office or home mural
+                that works with your existing lighting. Fast delivery, easy install, affordable pricing.
+            </p>
+            <a href="contact.html" class="cta-btn">Get a Free Quote Today</a>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-col">
+                <p class="footer-tagline">MEDICAL MURALS</p>
+                <p class="footer-subtitle">Lighting Interiors With The Beauty Of The Outdoors.</p>
+            </div>
+            <div class="footer-col">
+                <p class="footer-title">Company</p>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="mural-choices.html">Mural Choices</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <p class="footer-title">Products</p>
+                <ul>
+                    <li><a href="mri-linac.html">MRI LINAC</a></li>
+                    <li><a href="domes.html">Domes</a></li>
+                    <li><a href="plug-play.html">Plug &amp; Play</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <p class="footer-title">Resources</p>
+                <ul>
+                    <li><a href="digital-motion.html">Digital Motion</a></li>
+                    <li><a href="office-murals.html">Office Murals</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Medical Murals, LLC. All rights reserved.</p>
+            <p>Principal Office: Sarasota, Florida | Worldwide Locations</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
