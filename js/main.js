@@ -62,8 +62,8 @@ const statsObserver = new IntersectionObserver((entries) => {
     });
 }, { threshold: 0.3 });
 
-const statsBar = document.querySelector('.stats-bar');
-if (statsBar) statsObserver.observe(statsBar);
+const statsSection = document.querySelector('.stats-section') || document.querySelector('.stats-bar');
+if (statsSection) statsObserver.observe(statsSection);
 
 /* ===== STAGGERED STAT ITEMS ===== */
 const statItems = document.querySelectorAll('.stat-item');
@@ -76,7 +76,7 @@ const statObserver = new IntersectionObserver((entries) => {
     }
 }, { threshold: 0.3 });
 
-if (statsBar) statObserver.observe(statsBar);
+if (statsSection) statObserver.observe(statsSection);
 
 /* ===== LIGHTBOX ===== */
 const lightbox = document.querySelector('.lightbox-overlay');
@@ -85,8 +85,10 @@ const lightboxImg = lightbox ? lightbox.querySelector('img') : null;
 document.querySelectorAll('.gal-item img').forEach(img => {
     img.style.cursor = 'zoom-in';
     img.addEventListener('click', () => {
-        lightboxImg.src = img.src;
-        lightbox.classList.add('active');
+        if (lightboxImg && lightbox) {
+            lightboxImg.src = img.src;
+            lightbox.classList.add('active');
+        }
     });
 });
 
