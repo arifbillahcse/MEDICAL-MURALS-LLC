@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frames, Domes & LED Panels — Medical Murals, LLC</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+
+        /* ===== PAGE HERO ===== */
+        .page-hero {
+            background: linear-gradient(135deg, #0a1628 0%, #1a3060 50%, #0f2040 100%);
+            padding: 80px 0 70px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: -150px; left: 50%;
+            transform: translateX(-50%);
+            width: 700px; height: 700px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(232,138,46,0.1) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .page-hero .container { position: relative; z-index: 1; }
+
+        .page-hero h1 {
+            font-size: 48px;
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: -0.5px;
+            margin-bottom: 18px;
+            line-height: 1.1;
+        }
+
+        .page-hero h1 span { color: #e88a2e; }
+
+        .page-hero p {
+            font-size: 17px;
+            color: #8899bb;
+            max-width: 720px;
+            margin: 0 auto;
+            line-height: 1.75;
+        }
+
+        /* ===== PRODUCT SECTION ===== */
+        .product-section {
+            padding: 80px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.07);
+        }
+
+        .product-section:nth-child(even) {
+            background: #fafafa;
+        }
+
+        .product-section .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .product-section.reverse .product-text { order: 2; }
+        .product-section.reverse .product-img  { order: 1; }
+
+        /* ===== IMAGE BLOCK ===== */
+        .product-img {
+            position: relative;
+        }
+
+        .product-img-main {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            border-radius: 12px;
+            display: block;
+            box-shadow: 0 20px 48px rgba(0,0,0,0.14);
+        }
+
+        .product-img-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .product-img-grid img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            border-radius: 10px;
+            display: block;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+
+        .img-badge {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            background: rgba(232,138,46,0.93);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 20px;
+        }
+
+        /* ===== TEXT BLOCK ===== */
+        .product-text .section-badge {
+            display: inline-block;
+            background: rgba(232,138,46,0.12);
+            border: 1px solid rgba(232,138,46,0.35);
+            color: #e88a2e;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 5px 16px;
+            border-radius: 20px;
+            margin-bottom: 18px;
+        }
+
+        .product-text h2 {
+            font-size: 38px;
+            font-weight: 900;
+            color: #0a1628;
+            margin-bottom: 22px;
+            line-height: 1.2;
+        }
+
+        .product-text h2 span { color: #e88a2e; }
+
+        .product-text p {
+            font-size: 16px;
+            color: #444;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .product-text p:last-of-type { margin-bottom: 0; }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 24px 0 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 15px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .feature-list li::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #e88a2e;
+            flex-shrink: 0;
+            margin-top: 8px;
+        }
+
+        /* ===== SIZE GRID (Domes) ===== */
+        .sizes-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        .size-card {
+            background: linear-gradient(135deg, #0a1628 0%, #1a3060 100%);
+            color: #fff;
+            text-align: center;
+            padding: 18px 10px;
+            border-radius: 10px;
+        }
+
+        .size-card .size-dim {
+            font-size: 17px;
+            font-weight: 800;
+            color: #e88a2e;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .size-card .size-type {
+            font-size: 10px;
+            color: #8899bb;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ===== LED SPECS ===== */
+        .specs-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            margin-top: 28px;
+        }
+
+        .spec-card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 16px 18px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+        }
+
+        .spec-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(232,138,46,0.15) 0%, rgba(232,138,46,0.05) 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .spec-text strong {
+            display: block;
+            font-size: 14px;
+            font-weight: 700;
+            color: #0a1628;
+        }
+
+        .spec-text span {
+            font-size: 12px;
+            color: #888;
+        }
+
+        /* ===== CTA ===== */
+        .cta-section {
+            background: linear-gradient(135deg, #0a1628 0%, #1a3060 100%);
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 600px; height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(232,138,46,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-section .container { position: relative; z-index: 1; }
+
+        .cta-section h2 {
+            font-size: 40px;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            font-size: 17px;
+            color: #8899bb;
+            margin-bottom: 36px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.75;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #e88a2e 0%, #cc5500 100%);
+            color: #fff;
+            font-size: 15px;
+            font-weight: 700;
+            padding: 16px 40px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(232,138,46,0.3);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(232,138,46,0.4);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .product-section .container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .product-section.reverse .product-text,
+            .product-section.reverse .product-img {
+                order: initial;
+            }
+
+            .product-text h2 { font-size: 32px; }
+            .page-hero h1 { font-size: 38px; }
+            .sizes-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .product-section { padding: 52px 0; }
+            .product-text h2 { font-size: 28px; }
+            .page-hero h1 { font-size: 30px; }
+            .page-hero p { font-size: 15px; }
+            .specs-row { grid-template-columns: 1fr; }
+            .cta-section h2 { font-size: 28px; }
+            .product-img-main { height: 260px; }
+            .product-img-grid img { height: 140px; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="header-brand">
+                <a href="../index.html" class="logo">MEDICAL MURALS, LLC</a>
+                <span class="header-tagline">Lighting Interiors With The Beauty Of The Outdoors</span>
+            </div>
+            <a href="http://anyflip.com/pyws/mabe/" target="_blank" class="header-design-btn">Our Design</a>
+        </div>
+    </header>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="main-nav">
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul id="navMenu">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="mural-choices.html">Mural Choices</a></li>
+            <li><a href="mri-linac.html">MRI LINAC</a></li>
+            <li><a href="domes.html" class="active">Domes</a></li>
+            <li><a href="plug-play.html">Plug &amp; Play</a></li>
+            <li><a href="digital-motion.html">Digital Motion</a></li>
+            <li><a href="office-murals.html">Office Murals</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- ===== PAGE HERO ===== -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Frames, Domes &amp; <span>LED Light Panels</span></h1>
+            <p>
+                From custom architectural soffits and breathtaking sky domes to energy-efficient LED light panels,
+                Medical Murals crafts immersive ceiling environments that transform any space into a place of calm and wonder.
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== FRAMES / SOFFITS ===== -->
+    <section class="product-section">
+        <div class="container">
+            <div class="product-text reveal">
+                <span class="section-badge">Custom Architectural</span>
+                <h2>Frames &amp; <span>Soffits</span></h2>
+                <p>
+                    Our frames and soffits are manufactured using high-density architectural foam with a hard coat finish.
+                    They are very lightweight, strong, and easily attached to any ceiling — making installation simple and
+                    cost-effective without sacrificing quality.
+                </p>
+                <p>
+                    We can produce these in any size, shape, color, or texture to match your exact specifications.
+                    For example, the horseshoe soffit can be made 8' x 10' with a smooth finish and color matched to the wall paint —
+                    creating a seamlessly integrated look that feels custom-built.
+                </p>
+                <ul class="feature-list">
+                    <li>High-density architectural foam construction</li>
+                    <li>Hard coat finish for durability</li>
+                    <li>Extremely lightweight yet structurally strong</li>
+                    <li>Any size, shape, color, or texture available</li>
+                    <li>Color matching to existing wall paint</li>
+                    <li>Easy ceiling attachment — no heavy rigging required</li>
+                </ul>
+            </div>
+            <div class="product-img reveal">
+                <div class="product-img-grid">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=500&q=80" alt="Frame Installation">
+                    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=500&q=80" alt="Soffit Design">
+                    <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?w=500&q=80" alt="Custom Frame">
+                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=500&q=80" alt="Soffit Example">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CEILING DOMES ===== -->
+    <section class="product-section reverse">
+        <div class="container">
+            <div class="product-text reveal">
+                <span class="section-badge">Sky &amp; Star Systems</span>
+                <h2>Ceiling <span>Domes</span></h2>
+                <p>
+                    Bring the peaceful beauty of the sky into any room, including MRI. Patients become absorbed with
+                    changing constellations, twinkling stars, the moon, and the day-to-night evolution — these are
+                    truly amazing to watch and proven to reduce patient anxiety.
+                </p>
+                <p>
+                    Our Sky Domes come in multiple sizes for both standard grid ceilings and larger custom ceiling installations,
+                    making them versatile for virtually any room configuration.
+                </p>
+                <div class="sizes-grid">
+                    <div class="size-card">
+                        <div class="size-dim">2' × 2'</div>
+                        <div class="size-type">Grid Ceiling</div>
+                    </div>
+                    <div class="size-card">
+                        <div class="size-dim">2' × 4'</div>
+                        <div class="size-type">Grid Ceiling</div>
+                    </div>
+                    <div class="size-card">
+                        <div class="size-dim">4' × 4'</div>
+                        <div class="size-type">Large Install</div>
+                    </div>
+                    <div class="size-card">
+                        <div class="size-dim">6' × 8'</div>
+                        <div class="size-type">Large Install</div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-img reveal" style="position:relative;">
+                <img class="product-img-main" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=700&q=80" alt="Sky Dome Ceiling">
+                <span class="img-badge">MRI Compatible</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== LED LIGHT PANELS ===== -->
+    <section class="product-section">
+        <div class="container">
+            <div class="product-text reveal">
+                <span class="section-badge">Energy Efficient</span>
+                <h2>LED <span>Light Panels</span></h2>
+                <p>
+                    Great for general use and MRI rooms, our LED light panels can be used as a replacement for fluorescent lighting,
+                    to create an artificial window, or for many other lighting applications throughout your facility.
+                </p>
+                <p>
+                    LED light panels offer an exceptional combination of longevity, efficiency, and safety — making them an ideal
+                    choice for healthcare environments where reliability and compliance are paramount.
+                </p>
+                <div class="specs-row">
+                    <div class="spec-card">
+                        <div class="spec-icon">&#9201;</div>
+                        <div class="spec-text">
+                            <strong>100,000 Hours</strong>
+                            <span>Exceptional lifespan</span>
+                        </div>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-icon">&#127777;</div>
+                        <div class="spec-text">
+                            <strong>Very Little Heat</strong>
+                            <span>Cool operation</span>
+                        </div>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-icon">&#9889;</div>
+                        <div class="spec-text">
+                            <strong>Low Voltage</strong>
+                            <span>Energy efficient</span>
+                        </div>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-icon">&#9681;</div>
+                        <div class="spec-text">
+                            <strong>Mercury Free</strong>
+                            <span>Environmentally safe</span>
+                        </div>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-icon">&#127774;</div>
+                        <div class="spec-text">
+                            <strong>Dimmable</strong>
+                            <span>Full brightness control</span>
+                        </div>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-icon">&#127973;</div>
+                        <div class="spec-text">
+                            <strong>MRI Compatible</strong>
+                            <span>Safe for imaging rooms</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-img reveal" style="position:relative;">
+                <img class="product-img-main" src="https://images.unsplash.com/photo-1545259742-9e3cfd43e346?w=700&q=80" alt="LED Light Panels">
+                <span class="img-badge">MRI &amp; General Use</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Design Your Ideal Ceiling Environment</h2>
+            <p>
+                From custom frames and soffits to immersive sky domes and LED panels,
+                Medical Murals brings your vision to life. Contact us for a free consultation.
+            </p>
+            <a href="contact.html" class="cta-btn">Request a Free Quote</a>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-col">
+                <p class="footer-tagline">MEDICAL MURALS</p>
+                <p class="footer-subtitle">Lighting Interiors With The Beauty Of The Outdoors.</p>
+            </div>
+            <div class="footer-col">
+                <p class="footer-title">Company</p>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="mural-choices.html">Mural Choices</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <p class="footer-title">Products</p>
+                <ul>
+                    <li><a href="mri-linac.html">MRI LINAC</a></li>
+                    <li><a href="domes.html">Domes</a></li>
+                    <li><a href="plug-play.html">Plug &amp; Play</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <p class="footer-title">Resources</p>
+                <ul>
+                    <li><a href="digital-motion.html">Digital Motion</a></li>
+                    <li><a href="office-murals.html">Office Murals</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Medical Murals, LLC. All rights reserved.</p>
+            <p>Principal Office: Sarasota, Florida | Worldwide Locations</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
