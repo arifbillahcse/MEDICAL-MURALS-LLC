@@ -1397,11 +1397,15 @@ img { max-width: 100%; display: block; }
 
     .footer-bottom {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         gap: 16px;
+        text-align: center;
     }
 
-    .footer-btn-group { flex-wrap: wrap; }
+    .footer-btn-group {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }
 
 /* ============================================================
@@ -1422,6 +1426,6 @@ img { max-width: 100%; display: block; }
     .gallery-grid { grid-template-columns: 1fr; }
     .gallery-item:nth-child(1) { grid-column: auto; }
 
-    .footer-btn-group { flex-direction: column; }
-    .footer-btn { text-align: center; }
+    .footer-btn-group { flex-direction: column; align-items: center; }
+    .footer-btn { text-align: center; width: 100%; max-width: 280px; }
 }
