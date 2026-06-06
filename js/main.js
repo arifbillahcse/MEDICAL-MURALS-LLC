@@ -1,3 +1,22 @@
+/* ===== HAMBURGER MENU ===== */
+const navToggle = document.getElementById('navToggle');
+const navMenu   = document.getElementById('navMenu');
+
+if (navToggle && navMenu) {
+    navToggle.addEventListener('click', () => {
+        navToggle.classList.toggle('open');
+        navMenu.classList.toggle('open');
+    });
+
+    // Close menu when a link is clicked
+    navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navToggle.classList.remove('open');
+            navMenu.classList.remove('open');
+        });
+    });
+}
+
 /* ===== SCROLL REVEAL ===== */
 const revealElements = document.querySelectorAll('.reveal, .feature-row, .stat-item');
 
