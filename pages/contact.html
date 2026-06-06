@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us — Medical Murals, LLC</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+
+        /* ===== PAGE HERO ===== */
+        .page-hero {
+            background: linear-gradient(135deg, #0a1628 0%, #1a3060 50%, #0f2040 100%);
+            padding: 84px 0 72px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: -120px; left: 50%;
+            transform: translateX(-50%);
+            width: 700px; height: 700px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(232,138,46,0.1) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .page-hero .container { position: relative; z-index: 1; }
+
+        .page-hero h1 {
+            font-size: 50px;
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+            margin-bottom: 18px;
+        }
+
+        .page-hero h1 span { color: #e88a2e; }
+
+        .page-hero p {
+            font-size: 17px;
+            color: #8899bb;
+            max-width: 580px;
+            margin: 0 auto;
+            line-height: 1.75;
+        }
+
+        /* ===== MAIN CONTACT LAYOUT ===== */
+        .contact-main {
+            background: #f7f9fc;
+            padding: 80px 0;
+        }
+
+        .contact-main .container {
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
+            gap: 48px;
+            align-items: start;
+        }
+
+        /* ===== INFO PANEL ===== */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .info-card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 32px 28px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 1px solid #eee;
+        }
+
+        .info-card-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #f0f2f5;
+        }
+
+        .info-icon {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, rgba(232,138,46,0.15) 0%, rgba(232,138,46,0.05) 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .info-card-title h3 {
+            font-size: 16px;
+            font-weight: 800;
+            color: #0a1628;
+        }
+
+        .address-lines {
+            font-size: 15px;
+            color: #444;
+            line-height: 1.9;
+        }
+
+        .phone-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #f5f5f5;
+            font-size: 14px;
+        }
+
+        .phone-row:last-child { border-bottom: none; padding-bottom: 0; }
+        .phone-row:first-child { padding-top: 0; }
+
+        .phone-label {
+            color: #888;
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .phone-number {
+            color: #0a1628;
+            font-weight: 700;
+            font-size: 15px;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .phone-number:hover { color: #e88a2e; }
+
+        .email-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #f5f5f5;
+            gap: 12px;
+        }
+
+        .email-row:last-child { border-bottom: none; padding-bottom: 0; }
+        .email-row:first-child { padding-top: 0; }
+
+        .email-label {
+            color: #888;
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            flex-shrink: 0;
+        }
+
+        .email-link {
+            color: #e88a2e;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .email-link:hover { text-decoration: underline; }
+
+        .cities-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .city-chip {
+            background: linear-gradient(135deg, #0a1628 0%, #1a3060 100%);
+            color: #8899bb;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 5px 14px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== FORM PANEL ===== */
+        .contact-form-wrap {
+            background: #fff;
+            border-radius: 14px;
+            padding: 44px 40px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+            border: 1px solid #eee;
+        }
+
+        .contact-form-wrap h2 {
+            font-size: 28px;
+            font-weight: 900;
+            color: #0a1628;
+            margin-bottom: 8px;
+        }
+
+        .contact-form-wrap h2 span { color: #e88a2e; }
+
+        .contact-form-wrap > p {
+            font-size: 15px;
+            color: #777;
+            margin-bottom: 32px;
+            line-height: 1.65;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            margin-bottom: 20px;
+        }
+
+        .form-group.no-mb { margin-bottom: 0; }
+
+        .form-group label {
+            font-size: 13px;
+            font-weight: 700;
+            color: #0a1628;
+            letter-spacing: 0.3px;
+        }
+
+        .form-group label .req {
+            color: #e88a2e;
+            margin-left: 2px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1.5px solid #dde3ee;
+            border-radius: 8px;
+            font-size: 15px;
+            color: #0a1628;
+            background: #fafbfd;
+            outline: none;
+            transition: border-color 0.25s, box-shadow 0.25s;
+            font-family: inherit;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: #e88a2e;
+            box-shadow: 0 0 0 3px rgba(232,138,46,0.12);
+            background: #fff;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 130px;
+            line-height: 1.6;
+        }
+
+        .form-submit {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+
+        .form-note {
+            font-size: 12px;
+            color: #aaa;
+        }
+
+        .form-note span { color: #e88a2e; }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #e88a2e 0%, #cc5500 100%);
+            color: #fff;
+            font-size: 15px;
+            font-weight: 700;
+            padding: 14px 36px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 24px rgba(232,138,46,0.3);
+            letter-spacing: 0.3px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 36px rgba(232,138,46,0.4);
+        }
+
+        /* ===== SUCCESS MESSAGE ===== */
+        .form-success {
+            display: none;
+            background: linear-gradient(135deg, rgba(34,197,94,0.1) 0%, rgba(34,197,94,0.05) 100%);
+            border: 1.5px solid rgba(34,197,94,0.3);
+            border-radius: 10px;
+            padding: 18px 22px;
+            font-size: 15px;
+            color: #15803d;
+            font-weight: 600;
+            margin-top: 18px;
+            text-align: center;
+        }
+
+        /* ===== TERMS SECTION ===== */
+        .terms-section {
+            background: #0a1628;
+            padding: 60px 0;
+            border-top: 3px solid rgba(232,138,46,0.3);
+        }
+
+        .terms-section .container {
+            max-width: 900px;
+        }
+
+        .terms-section h3 {
+            font-size: 18px;
+            font-weight: 800;
+            color: #e88a2e;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .terms-text {
+            font-size: 13px;
+            color: #6677aa;
+            line-height: 1.9;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .contact-main .container {
+                grid-template-columns: 1fr;
+            }
+
+            .page-hero h1 { font-size: 38px; }
+        }
+
+        @media (max-width: 768px) {
+            .contact-form-wrap { padding: 30px 22px; }
+            .form-row { grid-template-columns: 1fr; gap: 0; }
+            .page-hero h1 { font-size: 30px; }
+            .page-hero p { font-size: 15px; }
+            .form-submit { flex-direction: column; align-items: flex-start; }
+            .submit-btn { width: 100%; text-align: center; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="header-brand">
+                <a href="../index.html" class="logo">MEDICAL MURALS, LLC</a>
+                <span class="header-tagline">Lighting Interiors With The Beauty Of The Outdoors</span>
+            </div>
+            <a href="http://anyflip.com/pyws/mabe/" target="_blank" class="header-design-btn">Our Design</a>
+        </div>
+    </header>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="main-nav">
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul id="navMenu">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="mural-choices.html">Mural Choices</a></li>
+            <li><a href="mri-linac.html">MRI LINAC</a></li>
+            <li><a href="domes.html">Domes</a></li>
+            <li><a href="plug-play.html">Plug &amp; Play</a></li>
+            <li><a href="digital-motion.html">Digital Motion</a></li>
+            <li><a href="office-murals.html">Office Murals</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- ===== PAGE HERO ===== -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>We Look Forward to <span>Hearing From You</span></h1>
+            <p>
+                Get in touch for a free consultation, custom quote, or any questions about our products.
+                Our team is ready to help you transform your space.
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== MAIN CONTACT ===== -->
+    <section class="contact-main">
+        <div class="container">
+
+            <!-- LEFT: Info Cards -->
+            <div class="contact-info">
+
+                <!-- Address -->
+                <div class="info-card reveal">
+                    <div class="info-card-title">
+                        <div class="info-icon">&#128205;</div>
+                        <h3>Mailing Address</h3>
+                    </div>
+                    <div class="address-lines">
+                        8437 Tuttle Avenue<br>
+                        Suite 353<br>
+                        Sarasota, FL 34243
+                    </div>
+                </div>
+
+                <!-- Phone -->
+                <div class="info-card reveal">
+                    <div class="info-card-title">
+                        <div class="info-icon">&#128222;</div>
+                        <h3>Call Us</h3>
+                    </div>
+                    <div class="phone-row">
+                        <span class="phone-label">Toll Free</span>
+                        <a href="tel:18884150111" class="phone-number">1-888-415-0111</a>
+                    </div>
+                    <div class="phone-row">
+                        <span class="phone-label">Direct</span>
+                        <a href="tel:4077928916" class="phone-number">407-792-8916</a>
+                    </div>
+                    <div class="phone-row">
+                        <span class="phone-label">Fax</span>
+                        <span class="phone-number">1-888-251-8835</span>
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="info-card reveal">
+                    <div class="info-card-title">
+                        <div class="info-icon">&#9993;</div>
+                        <h3>Email Us</h3>
+                    </div>
+                    <div class="email-row">
+                        <span class="email-label">General Info</span>
+                        <a href="mailto:info@medicalmurals.com" class="email-link">info@medicalmurals.com</a>
+                    </div>
+                    <div class="email-row">
+                        <span class="email-label">Sales</span>
+                        <a href="mailto:ron@medicalmurals.com" class="email-link">ron@medicalmurals.com</a>
+                    </div>
+                    <div class="email-row">
+                        <span class="email-label">Billing</span>
+                        <a href="mailto:info@medicalmurals.com" class="email-link">info@medicalmurals.com</a>
+                    </div>
+                </div>
+
+                <!-- Locations -->
+                <div class="info-card reveal">
+                    <div class="info-card-title">
+                        <div class="info-icon">&#127757;</div>
+                        <h3>Worldwide Locations</h3>
+                    </div>
+                    <div class="cities-list">
+                        <span class="city-chip">Tampa</span>
+                        <span class="city-chip">London</span>
+                        <span class="city-chip">Paris</span>
+                        <span class="city-chip">Riyadh</span>
+                        <span class="city-chip">Bogota</span>
+                        <span class="city-chip">Sao Paulo</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- RIGHT: Contact Form -->
+            <div class="contact-form-wrap reveal">
+                <h2>Send Us a <span>Message</span></h2>
+                <p>Fill out the form below and we'll get back to you promptly. Fields marked with <span style="color:#e88a2e;">*</span> are required.</p>
+
+                <form id="contactForm" novalidate>
+                    <div class="form-row">
+                        <div class="form-group no-mb">
+                            <label for="firstName">First Name <span class="req">*</span></label>
+                            <input type="text" id="firstName" name="firstName" placeholder="First" required>
+                        </div>
+                        <div class="form-group no-mb">
+                            <label for="lastName">Last Name <span class="req">*</span></label>
+                            <input type="text" id="lastName" name="lastName" placeholder="Last" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address <span class="req">*</span></label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="(000) 000-0000">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="product">Product Interest</label>
+                        <select id="product" name="product">
+                            <option value="">— Select a product —</option>
+                            <option>Backlit Murals / Artificial Skylights</option>
+                            <option>MRI / CT / Linear Accelerator Rooms</option>
+                            <option>Ceiling Domes &amp; Frames</option>
+                            <option>LED Light Panels</option>
+                            <option>Plug &amp; Play Murals</option>
+                            <option>Video Walls / Digital Motion</option>
+                            <option>Virtual Aquariums</option>
+                            <option>Fiber Optic Displays</option>
+                            <option>Office / Home Murals</option>
+                            <option>Other / General Inquiry</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comment">Comments / Message <span class="req">*</span></label>
+                        <textarea id="comment" name="comment" placeholder="Tell us about your project, room dimensions, or any questions you have..." required></textarea>
+                    </div>
+
+                    <div class="form-submit">
+                        <p class="form-note"><span>*</span> Indicates required field</p>
+                        <button type="submit" class="submit-btn">Send Message &rarr;</button>
+                    </div>
+
+                    <div class="form-success" id="formSuccess">
+                        &#10003;&nbsp; Thank you! Your message has been sent. We'll be in touch shortly.
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ===== TERMS ===== -->
+    <section class="terms-section">
+        <div class="container">
+            <h3>Terms, Disclaimer &amp; Legal</h3>
+            <p class="terms-text">
+                Warranty varies from product to product and can be quoted and/or extended upon request.
+                Full payment for all projects is due upon delivery exclusive of any other arrangements made.
+                Interest charges of 18% annually will be added to all overdue accounts.
+                All parties agree that exclusive personal jurisdiction will be held by the courts in the County of Manatee, Florida
+                for any disputes that arise, and additionally agree that the first step will be Mediation in Manatee County, Florida.
+                Any party bringing an action against Medical Murals or its affiliates agrees to incur the cost of all legal fees
+                and costs for the defense of Medical Murals LLC and its affiliates, and additionally agrees not to file any action
+                against these parties outside of Manatee County, Florida.
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-col">
+                <p class="footer-tagline">MEDICAL MURALS</p>
+                <p class="footer-subtitle">Lighting Interiors With The Beauty Of The Outdoors.</p>
+            </div>
+            <div class="footer-col">
+                <p class="footer-title">Company</p>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="mural-choices.html">Mural Choices</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <p class="footer-title">Products</p>
+                <ul>
+                    <li><a href="mri-linac.html">MRI LINAC</a></li>
+                    <li><a href="domes.html">Domes</a></li>
+                    <li><a href="plug-play.html">Plug &amp; Play</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <p class="footer-title">Resources</p>
+                <ul>
+                    <li><a href="digital-motion.html">Digital Motion</a></li>
+                    <li><a href="office-murals.html">Office Murals</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Medical Murals, LLC. All rights reserved.</p>
+            <p>Principal Office: Sarasota, Florida | Worldwide Locations</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName  = document.getElementById('lastName').value.trim();
+            const email     = document.getElementById('email').value.trim();
+            const comment   = document.getElementById('comment').value.trim();
+
+            if (!firstName || !lastName || !email || !comment) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+
+            document.getElementById('formSuccess').style.display = 'block';
+            this.reset();
+            this.querySelector('.submit-btn').textContent = 'Sent!';
+            this.querySelector('.submit-btn').disabled = true;
+        });
+    </script>
+</body>
+</html>
