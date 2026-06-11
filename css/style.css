@@ -857,6 +857,93 @@ img { max-width: 100%; display: block; }
 .author-name { color: #fff; font-size: 15px; font-weight: 700; }
 .author-title { color: #778899; font-size: 13px; }
 
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    margin-top: 0;
+}
+
+.testimonial-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(232,138,46,0.2);
+    border-radius: 14px;
+    padding: 32px;
+    backdrop-filter: blur(10px);
+    transition: all 0.4s ease;
+}
+
+.testimonial-card:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(232,138,46,0.4);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(232,138,46,0.15);
+}
+
+.testimonial-card blockquote {
+    font-size: 16px;
+    font-style: italic;
+    color: #dde8ff;
+    line-height: 1.7;
+    margin: 0 0 24px;
+    font-weight: 400;
+}
+
+.testimonial-card .testimonial-author {
+    gap: 12px;
+}
+
+.testimonial-card .author-avatar {
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+}
+
+.testimonial-card .author-name { font-size: 14px; }
+.testimonial-card .author-title { font-size: 12px; }
+
+/* --- Index2 Alternative Grid --- */
+.testimonials-section { padding: 60px 0; background: #fff; }
+
+.testimonials-grid-alt {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 0;
+}
+
+.testimonial-card-alt {
+    background: #f4f6f9;
+    border-left: 4px solid #e88a2e;
+    border-radius: 8px;
+    padding: 28px;
+    transition: all 0.4s ease;
+}
+
+.testimonial-card-alt:hover {
+    background: #eef1f6;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    transform: translateY(-3px);
+}
+
+.testimonial-card-alt blockquote {
+    font-size: 15px;
+    font-style: italic;
+    color: #444;
+    line-height: 1.7;
+    margin: 0 0 18px;
+}
+
+.testimonial-card-alt p {
+    color: #0a1628;
+    font-size: 13px;
+}
+
+.card-subtitle {
+    color: #778899;
+    font-size: 12px;
+}
+
 /* ============================================================
    GALLERY STRIP
    ============================================================ */
@@ -1399,6 +1486,15 @@ img { max-width: 100%; display: block; }
     /* --- TESTIMONIAL --- */
     .testimonial-section { padding: 50px 0; }
     .testimonial-section blockquote { font-size: 16px; }
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .testimonials-grid-alt {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+    .testimonial-card { padding: 24px; }
 
     /* --- VIDEO --- */
     .video-section { padding: 60px 0; }
@@ -1468,6 +1564,13 @@ img { max-width: 100%; display: block; }
 
     /* --- VIDEO --- */
     .video-section { padding: 40px 0; }
+
+    /* --- TESTIMONIAL --- */
+    .testimonial-section { padding: 40px 0; }
+    .testimonials-grid { grid-template-columns: 1fr; gap: 16px; }
+    .testimonials-grid-alt { grid-template-columns: 1fr; gap: 14px; }
+    .testimonial-card { padding: 20px; }
+    .testimonial-card blockquote { font-size: 14px; }
 
     .gallery-grid {
         grid-template-columns: 1fr;
