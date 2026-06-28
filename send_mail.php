@@ -44,7 +44,7 @@ try {
     $mail->Host       = 'smtp.hostinger.com';
     $mail->SMTPAuth   = true;
     $mail->Username   = 'info@medicalmurals.com';
-    $mail->Password   = 'YOUR_EMAIL_PASSWORD';   // <-- Replace with your Hostinger email password
+    $mail->Password   = 'Qi8KqJVQ2AbyVU##';
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
     $mail->Port       = 465;
 
