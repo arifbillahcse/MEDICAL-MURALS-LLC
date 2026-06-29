@@ -28,7 +28,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit;
 }
 
-$to      = 'info@medicalmurals.com, ron@medicalmurals.com';
+$to      = 'ron@medicalmurals.com';
 $subject = "New Contact Form: $firstName $lastName";
 
 $message = "
