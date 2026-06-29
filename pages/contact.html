@@ -656,7 +656,16 @@
                     method: 'POST',
                     body: new FormData(this)
                 });
-                const result = await response.json();
+
+                let result;
+                const text = await response.text();
+                try {
+                    result = JSON.parse(text);
+                } catch (e) {
+                    // PHP returned non-JSON (error page or PHP not running)
+                    console.error('Server response:', text);
+                    throw new Error('Server error. Make sure send_mail.php is on a PHP server.');
+                }
 
                 if (result.success) {
                     document.getElementById('formSuccess').style.display = 'block';
@@ -667,7 +676,10 @@
                     throw new Error(result.message);
                 }
             } catch (err) {
-                document.getElementById('formError').style.display = 'block';
+                console.error('Form error:', err.message);
+                const errBox = document.getElementById('formError');
+                errBox.innerHTML = '&#10005;&nbsp; ' + (err.message || 'Something went wrong. Please email us at info@medicalmurals.com');
+                errBox.style.display = 'block';
                 document.getElementById('formSuccess').style.display = 'none';
                 btn.textContent = 'Send Message →';
                 btn.disabled = false;
